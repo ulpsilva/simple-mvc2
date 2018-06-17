@@ -83,6 +83,20 @@
                     <li>
                         <a href="<?php echo URL ?>"><i class="fa fa-home fa-fw"></i> Home</a>
                     </li>
+                    <?php if (Session::isLogin()) { ?>
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                <li>
+                                    <a href="<?php echo URL . "category" ?>">Category list</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL . "category/new" ?>">New category</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
