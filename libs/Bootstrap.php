@@ -24,8 +24,10 @@ class Bootstrap {
         $controller = new $controllerClass;
         if (isset($url[0]) && method_exists($controller, $url[0] . "Action")) {
             $method = array_shift($url). "Action";
-        } else {
+        } else if (!isset($url[0])) {
             $method = "indexAction";
+        } else {
+            $this->errorHandler();
         }
 
         if (isset($url[0])) {
