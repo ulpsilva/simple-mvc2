@@ -42,7 +42,7 @@ class Model {
      * @return string
      */
     public function escape_string($string) {
-        return mysqli_real_escape_string($this->connection, $string);
+        return mysqli_real_escape_string($this->connection, trim($string));
     }
 
     /**

@@ -28,11 +28,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td><a href="<?php echo URL . "category/show" ?>"><span class="fa fa-search"></span></a> &nbsp; <a href="<?php echo URL . "category/edit" ?>"><span class="fa fa-edit"></span></a></td>
-                                </tr>
+                                <?php foreach ($this->categories as $category) { ?>
+                                    <tr>
+                                        <td><?php echo $category->id ?></td>
+                                        <td><?php echo $category->name ?></td>
+                                        <td><a href="<?php echo URL . "category/show/" . $category->id ?>"><span class="fa fa-search"></span></a> &nbsp; <a href="<?php echo URL . "category/edit/" . $category->id ?>"><span class="fa fa-edit"></span></a></td>
+                                    </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
