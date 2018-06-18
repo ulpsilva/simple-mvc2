@@ -16,6 +16,7 @@ class CategoryController extends Controller {
      * Create new category
      */
     function newAction() {
+        Helper::guestRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
             $category->name = $_POST['name'];
@@ -41,6 +42,7 @@ class CategoryController extends Controller {
      * Category list
      */
     function indexAction() {
+        Helper::guestRedirect();
         $category = new CategoryModel();
         $this->view->categories = $category->findAll();
         $this->view->render("category/index");
@@ -51,6 +53,7 @@ class CategoryController extends Controller {
      * @param $id int
      */
     function showAction($id = 0) {
+        Helper::guestRedirect();
         $category = new CategoryModel();
         $category = $category->findById($id);
 
@@ -67,6 +70,7 @@ class CategoryController extends Controller {
      * @param $id int
      */
     function editAction($id) {
+        Helper::guestRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
             $category->id = $_POST['id'];
@@ -106,6 +110,7 @@ class CategoryController extends Controller {
      * @param $id int
      */
     function deleteAction($id) {
+        Helper::guestRedirect();
         $category = new CategoryModel();
         $category->id = $id;
 

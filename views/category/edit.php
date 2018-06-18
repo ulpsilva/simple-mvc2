@@ -1,4 +1,3 @@
-<?php if (!Session::isLogin()) { Helper::redirect(); } ?>
 <?php include "views/header.php" ?>
     <div id="page-wrapper">
         <div class="row">
