@@ -19,7 +19,7 @@ class Bootstrap {
         if (file_exists($controllerFile)) {
             require $controllerFile;
         } else {
-            $this->errorHandler();
+            Helper::redirect("error");
         }
         $controller = new $controllerClass;
         if (isset($url[0]) && method_exists($controller, $url[0] . "Action")) {
@@ -27,7 +27,7 @@ class Bootstrap {
         } else if (!isset($url[0])) {
             $method = "indexAction";
         } else {
-            $this->errorHandler();
+            Helper::redirect("error");
         }
 
         if (isset($url[0])) {
@@ -35,15 +35,7 @@ class Bootstrap {
         } else if (method_exists($controller, $method)) {
             $controller->{$method}();
         } else {
-            $this->errorHandler();
+            Helper::redirect("error");
         }
-    }
-
-    private function errorHandler()
-    {
-        require "controllers/errorController.php";
-        $controller = new ErrorController();
-        $controller->indexAction();
-        exit();
     }
 }
