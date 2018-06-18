@@ -16,6 +16,7 @@ class UserController extends Controller {
      * User Registration action.
      */
     function registerAction() {
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user = new UserModel();
             $user->username = $_POST['username'];
@@ -44,6 +45,7 @@ class UserController extends Controller {
      * User login action
      */
     function loginAction() {
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user = new UserModel();
             $user->username = $_POST['username'];

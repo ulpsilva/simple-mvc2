@@ -83,7 +83,7 @@ class UserModel extends Model {
             ."WHERE `id`=" . $this->escape_string($this->id);
 
         if ($this->query($query)) {
-            return $this->last_query_id();
+            return $this->id;
         } else {
             return false;
         }
