@@ -5,13 +5,15 @@
  *
  * Developer: Lakmal Silva
  */
-class Helper {
+class Helper
+{
 
     /**
      * Redirect wrapper function
      * @param $path string
      */
-    public static function redirect($path = "") {
+    public static function redirect($path = "")
+    {
         header("Location: " . URL . $path);
     }
 
@@ -19,7 +21,8 @@ class Helper {
      * Redirect guest users
      * @param $path string
      */
-    public static function guestRedirect($path = "") {
+    public static function guestRedirect($path = "")
+    {
         if (!Session::isLogin()) {
             self::redirect($path);
         }
@@ -29,7 +32,8 @@ class Helper {
      * Redirect logged in users
      * @param $path string
      */
-    public static function userRedirect($path = "") {
+    public static function userRedirect($path = "")
+    {
         if (Session::isLogin()) {
             self::redirect($path);
         }

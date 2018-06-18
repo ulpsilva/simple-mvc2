@@ -5,9 +5,11 @@
  *
  * Developer: Lakmal Silva
  */
-class Controller {
+class Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         $this->view = new View();
     }
 }

@@ -24,7 +24,8 @@
     <link href="<?php echo URL . "public/vendor/morrisjs/morris.css" ?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo URL . "public/vendor/font-awesome/css/font-awesome.min.css" ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL . "public/vendor/font-awesome/css/font-awesome.min.css" ?>" rel="stylesheet"
+          type="text/css">
 
     <!-- Custom CSS -->
     <link href="<?php echo URL . "public/dist/css/custom.css" ?>" rel="stylesheet">
@@ -92,6 +93,18 @@
                                 </li>
                                 <li>
                                     <a href="<?php echo URL . "category/new" ?>">New category</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file-text fa-fw"></i> Article<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                <li>
+                                    <a href="<?php echo URL . "article" ?>">Article list</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL . "article/new" ?>">New article</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

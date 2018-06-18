@@ -6,16 +6,19 @@ require "models/categoryModel.php";
  *
  * Developer: Lakmal Silva
  */
-class CategoryController extends Controller {
+class CategoryController extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         Parent::__construct();
     }
 
     /**
      * Create new category
      */
-    function newAction() {
+    function newAction()
+    {
         Helper::guestRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
@@ -41,7 +44,8 @@ class CategoryController extends Controller {
     /**
      * Category list
      */
-    function indexAction() {
+    function indexAction()
+    {
         Helper::guestRedirect();
         $category = new CategoryModel();
         $this->view->categories = $category->findAll();
@@ -52,7 +56,8 @@ class CategoryController extends Controller {
      * Show category
      * @param $id int
      */
-    function showAction($id = 0) {
+    function showAction($id = 0)
+    {
         Helper::guestRedirect();
         $category = new CategoryModel();
         $category = $category->findById($id);
@@ -69,7 +74,8 @@ class CategoryController extends Controller {
      * Update category
      * @param $id int
      */
-    function editAction($id) {
+    function editAction($id)
+    {
         Helper::guestRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
@@ -109,7 +115,8 @@ class CategoryController extends Controller {
      * Delete category
      * @param $id int
      */
-    function deleteAction($id) {
+    function deleteAction($id)
+    {
         Helper::guestRedirect();
         $category = new CategoryModel();
         $category->id = $id;

@@ -20,7 +20,10 @@
                         <form role="form" method="post">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter category name" required value="<?php if (isset($_POST['name'])) {echo $_POST['name'];} ?>">
+                                <input type="text" name="name" class="form-control" placeholder="Enter category name"
+                                       required value="<?php if (isset($_POST['name'])) {
+                                    echo $_POST['name'];
+                                } ?>">
                             </div>
                             <a href="<?php echo URL . "category" ?>" class="btn btn-default">Back</a>
                             <button type="submit" class="btn btn-primary">Create</button>

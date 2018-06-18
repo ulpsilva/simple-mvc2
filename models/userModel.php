@@ -6,7 +6,8 @@
  *
  * Developer: Lakmal Silva
  */
-class UserModel extends Model {
+class UserModel extends Model
+{
 
     public $id;
     public $username;
@@ -14,7 +15,8 @@ class UserModel extends Model {
     public $first_name;
     public $last_name;
 
-    function __construct() {
+    function __construct()
+    {
         Parent::__construct();
     }
 
@@ -22,7 +24,8 @@ class UserModel extends Model {
      * Find all users.
      * @return array|bool
      */
-    public function findAll() {
+    public function findAll()
+    {
         $result_set = $this->query("SELECT * FROM users");
         $the_obj_array = array();
 
@@ -41,7 +44,8 @@ class UserModel extends Model {
      * @param $id int
      * @return bool|Model
      */
-    public function findById($id) {
+    public function findById($id)
+    {
         $result_set = $this->query("SELECT * FROM users WHERE id = $id LIMIT 1");
         if (mysqli_num_rows($result_set)) {
             $found_user = mysqli_fetch_array($result_set);
@@ -55,13 +59,14 @@ class UserModel extends Model {
      * Create user
      * @return bool|mixed
      */
-    public function create() {
+    public function create()
+    {
         $query = "INSERT INTO `users`(`username`, `password`, `first_name`, `last_name`) VALUES ('"
             . $this->escape_string($this->username) . "','"
             . $this->escape_string(sha1($this->password)) . "','"
             . $this->escape_string($this->first_name) . "','"
             . $this->escape_string($this->last_name) . "'"
-            .")";
+            . ")";
 
         if ($this->query($query)) {
             return $this->last_query_id();
@@ -74,13 +79,14 @@ class UserModel extends Model {
      * Update user
      * @return bool|mixed
      */
-    public function update() {
+    public function update()
+    {
         $query = "UPDATE `users` SET "
-            ."`username`='" . $this->escape_string($this->username) . "',"
-            ."`password`='" . $this->escape_string(sha1($this->password)) . "',"
-            ."`first_name`='" . $this->escape_string($this->first_name) . "',"
-            ."`last_name`='" . $this->escape_string($this->last_name) . "' "
-            ."WHERE `id`=" . $this->escape_string($this->id);
+            . "`username`='" . $this->escape_string($this->username) . "',"
+            . "`password`='" . $this->escape_string(sha1($this->password)) . "',"
+            . "`first_name`='" . $this->escape_string($this->first_name) . "',"
+            . "`last_name`='" . $this->escape_string($this->last_name) . "' "
+            . "WHERE `id`=" . $this->escape_string($this->id);
 
         if ($this->query($query)) {
             return $this->id;
@@ -93,9 +99,10 @@ class UserModel extends Model {
      * Delete user
      * @return bool|mysqli_result
      */
-    public function delete() {
+    public function delete()
+    {
         $query = "DELETE FROM `users` "
-            ."WHERE `id`=" . $this->escape_string($this->id);
+            . "WHERE `id`=" . $this->escape_string($this->id);
 
         return $this->query($query);
     }
@@ -104,7 +111,8 @@ class UserModel extends Model {
      * Check username
      * @return bool
      */
-    public function checkUsername() {
+    public function checkUsername()
+    {
         $result_set = $this->query("SELECT * FROM users WHERE `username` = '" . $this->escape_string($this->username) . "' LIMIT 1");
         if (mysqli_num_rows($result_set)) {
             return true;
@@ -117,7 +125,8 @@ class UserModel extends Model {
      * Login user
      * @return bool|Model
      */
-    public function login() {
+    public function login()
+    {
         $result_set = $this->query("SELECT * FROM users WHERE username = '" . $this->escape_string($this->username) . "' AND password = '" . $this->escape_string(sha1($this->password)) . "' LIMIT 1");
         if (mysqli_num_rows($result_set)) {
             $found_user = mysqli_fetch_array($result_set);

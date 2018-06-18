@@ -20,14 +20,21 @@
                         <form role="form" method="post">
                             <div class="form-group">
                                 <label>Id</label>
-                                <input type="text" class="form-control" disabled value="<?php if (isset($this->category)) {echo $this->category->id;} ?>">
+                                <input type="text" class="form-control" disabled
+                                       value="<?php if (isset($this->category)) {
+                                           echo $this->category->id;
+                                       } ?>">
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" class="form-control" disabled value="<?php if (isset($this->category)) {echo $this->category->name;} ?>">
+                                <input type="text" class="form-control" disabled
+                                       value="<?php if (isset($this->category)) {
+                                           echo $this->category->name;
+                                       } ?>">
                             </div>
                             <a href="<?php echo URL . "category" ?>" class="btn btn-default">Back</a>
-                            <a href="<?php echo URL . "category/delete/". $this->category->id  ?>" class="btn btn-danger pull-right">Delete</a>
+                            <a href="<?php echo URL . "category/delete/" . $this->category->id ?>"
+                               class="btn btn-danger pull-right">Delete</a>
                         </form>
                     </div>
                 </div>

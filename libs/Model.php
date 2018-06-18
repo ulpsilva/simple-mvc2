@@ -5,12 +5,14 @@
  *
  * Developer: Lakmal Silva
  */
-class Model {
+class Model
+{
 
     // mysql connection
     public $connection;
 
-    function __construct() {
+    function __construct()
+    {
         $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
         if ($this->connection->connect_errno) {
@@ -23,7 +25,8 @@ class Model {
      * @param $sql string
      * @return bool|mysqli_result
      */
-    public function query($sql) {
+    public function query($sql)
+    {
         $result = mysqli_query($this->connection, $sql);
         return $result;
     }
@@ -32,7 +35,8 @@ class Model {
      * Get last insert/update id
      * @return mixed
      */
-    public function last_query_id() {
+    public function last_query_id()
+    {
         return $this->connection->insert_id;
     }
 
@@ -41,7 +45,8 @@ class Model {
      * @param $string string
      * @return string
      */
-    public function escape_string($string) {
+    public function escape_string($string)
+    {
         return mysqli_real_escape_string($this->connection, trim($string));
     }
 
@@ -51,7 +56,8 @@ class Model {
      * @param $the_record array
      * @return Model
      */
-    public function instantiation($obj, $the_record) {
+    public function instantiation($obj, $the_record)
+    {
         foreach ($the_record as $the_attribute => $value) {
             if ($obj->has_the_attribute($the_attribute)) {
                 $obj->$the_attribute = $value;
@@ -65,7 +71,8 @@ class Model {
      * @param $the_attribute string
      * @return bool
      */
-    public function has_the_attribute($the_attribute) {
+    public function has_the_attribute($the_attribute)
+    {
         $obj_properties = get_object_vars($this);
         return array_key_exists($the_attribute, $obj_properties);
     }

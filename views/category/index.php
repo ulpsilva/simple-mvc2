@@ -31,7 +31,10 @@
                                     <tr>
                                         <td><?php echo $category->id ?></td>
                                         <td><?php echo $category->name ?></td>
-                                        <td><a href="<?php echo URL . "category/show/" . $category->id ?>"><span class="fa fa-search"></span></a> &nbsp; <a href="<?php echo URL . "category/edit/" . $category->id ?>"><span class="fa fa-edit"></span></a></td>
+                                        <td><a href="<?php echo URL . "category/show/" . $category->id ?>"><span
+                                                        class="fa fa-search"></span></a> &nbsp; <a
+                                                    href="<?php echo URL . "category/edit/" . $category->id ?>"><span
+                                                        class="fa fa-edit"></span></a></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>

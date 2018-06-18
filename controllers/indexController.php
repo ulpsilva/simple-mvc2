@@ -5,16 +5,19 @@
  *
  * Developer: Lakmal Silva
  */
-class IndexController extends Controller {
+class IndexController extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         Parent::__construct();
     }
 
     /**
      * Index page
      */
-    function indexAction() {
+    function indexAction()
+    {
         $this->view->render("index/index");
     }
 }

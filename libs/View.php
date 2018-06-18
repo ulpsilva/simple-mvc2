@@ -5,13 +5,15 @@
  *
  * Developer: Lakmal Silva
  */
-class View {
+class View
+{
 
     /**
      * Render template file.
      * @param $name string
      */
-    public function render($name) {
+    public function render($name)
+    {
         require "views/" . $name . ".php";
     }
 }

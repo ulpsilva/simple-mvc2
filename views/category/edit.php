@@ -18,14 +18,21 @@
                     </div>
                     <div class="panel-body">
                         <form role="form" method="post">
-                            <input type="hidden" name="id" class="form-control" value="<?php if (isset($this->category)) {echo $this->category->id;} ?>">
+                            <input type="hidden" name="id" class="form-control"
+                                   value="<?php if (isset($this->category)) {
+                                       echo $this->category->id;
+                                   } ?>">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter category name" required value="<?php if (isset($this->category)) {echo $this->category->name;} ?>">
+                                <input type="text" name="name" class="form-control" placeholder="Enter category name"
+                                       required value="<?php if (isset($this->category)) {
+                                    echo $this->category->name;
+                                } ?>">
                             </div>
                             <a href="<?php echo URL . "category" ?>" class="btn btn-default">Back</a>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="<?php echo URL . "category/delete/". $this->category->id  ?>" class="btn btn-danger pull-right">Delete</a>
+                            <a href="<?php echo URL . "category/delete/" . $this->category->id ?>"
+                               class="btn btn-danger pull-right">Delete</a>
                         </form>
                     </div>
                 </div>

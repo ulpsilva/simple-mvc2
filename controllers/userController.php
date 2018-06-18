@@ -6,16 +6,19 @@ require "models/userModel.php";
  *
  * Developer: Lakmal Silva
  */
-class UserController extends Controller {
+class UserController extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         Parent::__construct();
     }
 
     /**
      * User Registration action.
      */
-    function registerAction() {
+    function registerAction()
+    {
         Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user = new UserModel();
@@ -44,7 +47,8 @@ class UserController extends Controller {
     /**
      * User login action
      */
-    function loginAction() {
+    function loginAction()
+    {
         Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user = new UserModel();
@@ -53,7 +57,7 @@ class UserController extends Controller {
 
             $user = $user->login();
 
-            if($user) {
+            if ($user) {
                 Session::login($user);
                 Helper::redirect();
             } else {
@@ -66,7 +70,8 @@ class UserController extends Controller {
         }
     }
 
-    function logoutAction() {
+    function logoutAction()
+    {
         Session::logout();
         Helper::redirect();
     }

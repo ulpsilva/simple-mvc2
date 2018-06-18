@@ -5,16 +5,19 @@
  *
  * Developer: Lakmal Silva
  */
-class ErrorController extends Controller {
+class ErrorController extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         Parent::__construct();
     }
 
     /**
      * 404 page not found error.
      */
-    function indexAction() {
+    function indexAction()
+    {
         $this->view->render("error/error404");
     }
 }

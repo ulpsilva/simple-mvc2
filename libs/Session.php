@@ -5,12 +5,14 @@
  *
  * Developer: Lakmal Silva
  */
-class Session {
+class Session
+{
 
     /**
      * Create flash array and remove old flash values
      */
-    function __construct() {
+    function __construct()
+    {
         session_start();
 
         if (!isset($_SESSION['is_login'])) {
@@ -35,7 +37,8 @@ class Session {
      * @param $name string
      * @param $value string
      */
-    public static function addFlash($name, $value) {
+    public static function addFlash($name, $value)
+    {
         $_SESSION['flash'][$name] = [
             "flash_count" => 0,
             "value" => $value
@@ -47,7 +50,8 @@ class Session {
      * @param $name string
      * @return string|bool
      */
-    public static function getFlash($name) {
+    public static function getFlash($name)
+    {
         if (isset($_SESSION['flash'][$name])) {
             return $_SESSION['flash'][$name]['value'];
         } else {
@@ -60,7 +64,8 @@ class Session {
      * @param $name string
      * @return bool
      */
-    public static function checkFlash($name) {
+    public static function checkFlash($name)
+    {
         return isset($_SESSION['flash'][$name]);
     }
 
@@ -68,7 +73,8 @@ class Session {
      * Saving user object in session
      * @param $user UserModel
      */
-    public static function login($user) {
+    public static function login($user)
+    {
         $_SESSION['is_login'] = true;
         $_SESSION['current_user'] = $user;
     }
@@ -77,7 +83,8 @@ class Session {
      * check is user login
      * @return bool
      */
-    public static function isLogin() {
+    public static function isLogin()
+    {
         return $_SESSION['is_login'];
     }
 
@@ -85,14 +92,16 @@ class Session {
      * Get current user
      * @return UserModel
      */
-    public static function getCurrentUser() {
+    public static function getCurrentUser()
+    {
         return $_SESSION['current_user'];
     }
 
     /**
      * Unset session when user logout
      */
-    public static function logout() {
+    public static function logout()
+    {
         $_SESSION['is_login'] = false;
         unset($_SESSION['current_user']);
     }

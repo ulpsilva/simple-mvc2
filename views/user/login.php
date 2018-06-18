@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,13 +18,14 @@
     <link href="<?php echo URL . "public/vendor/metisMenu/metisMenu.min.css" ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo URL . "public/dist/css/sb-admin-2.css"?>" rel="stylesheet">
+    <link href="<?php echo URL . "public/dist/css/sb-admin-2.css" ?>" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="<?php echo URL . "public/vendor/morrisjs/morris.css"?>" rel="stylesheet">
+    <link href="<?php echo URL . "public/vendor/morrisjs/morris.css" ?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo URL . "public/vendor/font-awesome/css/font-awesome.min.css"?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL . "public/vendor/font-awesome/css/font-awesome.min.css" ?>" rel="stylesheet"
+          type="text/css">
 
     <!-- Custom CSS -->
     <link href="<?php echo URL . "public/dist/css/custom.css" ?>" rel="stylesheet">
@@ -49,12 +49,12 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <?php if (isset($this->error)) {?>
+                    <?php if (isset($this->error)) { ?>
                         <div class="alert alert-danger">
                             <?php echo $this->error ?>
                         </div>
                     <?php } ?>
-                    <?php if (Session::checkFlash("success")) {?>
+                    <?php if (Session::checkFlash("success")) { ?>
                         <div class="alert alert-success">
                             <?php echo Session::getFlash("success") ?>
                         </div>
@@ -62,13 +62,17 @@
                     <form role="form" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Username" name="username" type="text" autofocus required value="<?php if (isset($_POST['username'])) {echo $_POST['username'];} ?>">
+                                <input class="form-control" placeholder="Username" name="username" type="text" autofocus
+                                       required value="<?php if (isset($_POST['username'])) {
+                                    echo $_POST['username'];
+                                } ?>">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+                                <input class="form-control" placeholder="Password" name="password" type="password"
+                                       value="" required>
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
-                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Login" />
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Login"/>
                         </fieldset>
                     </form>
                 </div>
@@ -78,22 +82,22 @@
 </div>
 
 <!-- jQuery -->
-<script src="<?php echo URL . "public/vendor/jquery/jquery.min.js"?>"></script>
+<script src="<?php echo URL . "public/vendor/jquery/jquery.min.js" ?>"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="<?php echo URL . "public/vendor/bootstrap/js/bootstrap.min.js"?>"></script>
+<script src="<?php echo URL . "public/vendor/bootstrap/js/bootstrap.min.js" ?>"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="<?php echo URL . "public/vendor/metisMenu/metisMenu.min.js"?>"></script>
+<script src="<?php echo URL . "public/vendor/metisMenu/metisMenu.min.js" ?>"></script>
 
 <!-- jQuery validation Plugin -->
-<script src="<?php echo URL . "public/vendor/jquery-validation/jquery.validate.min.js"?>"></script>
+<script src="<?php echo URL . "public/vendor/jquery-validation/jquery.validate.min.js" ?>"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="<?php echo URL . "public/dist/js/sb-admin-2.js"?>"></script>
+<script src="<?php echo URL . "public/dist/js/sb-admin-2.js" ?>"></script>
 
 <!-- Custom JavaScript -->
-<script src="<?php echo URL . "public/dist/js/custom.js"?>"></script>
+<script src="<?php echo URL . "public/dist/js/custom.js" ?>"></script>
 
 </body>
 
