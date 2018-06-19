@@ -98,13 +98,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-file-text fa-fw"></i> Article<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i> Products<span class="fa arrow"></span></a>
                             <ul class="nav  nav-second-level">
                                 <li>
-                                    <a href="<?php echo URL . "article" ?>">Article list</a>
+                                    <a href="<?php echo URL . "product" ?>">Product list</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URL . "article/new" ?>">New article</a>
+                                    <a href="<?php echo URL . "product/new" ?>">New product</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -1,5 +1,5 @@
 <?php
-require "models/articleModel.php";
+require "models/productModel.php";
 require "models/categoryModel.php";
 
 /**
@@ -20,10 +20,10 @@ class IndexController extends Controller
      */
     function indexAction()
     {
-        $article = new ArticleModel();
+        $product = new ProductModel();
         $category = new CategoryModel();
         $this->view->categories = $category->findAll();
-        $this->view->articles = $article->findAll();
+        $this->view->products = $product->findAll();
         $this->view->render("index/index");
     }
 }

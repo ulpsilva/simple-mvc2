@@ -2,7 +2,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Article Creation</h1>
+                <h1 class="page-header">Product list</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -14,7 +14,7 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Article list
+                        Product list
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -24,22 +24,26 @@
                                     <th>#</th>
                                     <th>Title</th>
                                     <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($this->articles as $article) { ?>
+                                <?php foreach ($this->products as $product) { ?>
                                     <tr>
-                                        <td><?php echo $article->id ?></td>
-                                        <td><?php echo $article->title ?></td>
+                                        <td><?php echo $product->id ?></td>
+                                        <td><?php echo $product->title ?></td>
                                         <?php foreach ($this->categories as $category) {
-                                            if ($category->id == $article->category_id) {
+                                            if ($category->id == $product->category_id) {
                                                 echo "<td>" . $category->name . "</td>";
                                             }
                                         } ?>
-                                        <td><a href="<?php echo URL . "article/show/" . $article->id ?>"><span
+                                        <td><?php echo $product->quantity ?></td>
+                                        <td><?php echo $product->price ?></td>
+                                        <td><a href="<?php echo URL . "product/show/" . $product->id ?>"><span
                                                         class="fa fa-search"></span></a> &nbsp; <a
-                                                    href="<?php echo URL . "article/edit/" . $article->id ?>"><span
+                                                    href="<?php echo URL . "product/edit/" . $product->id ?>"><span
                                                         class="fa fa-edit"></span></a></td>
                                     </tr>
                                 <?php } ?>

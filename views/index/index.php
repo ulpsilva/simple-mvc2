@@ -9,10 +9,10 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <?php foreach ($this->articles as $article) { ?>
+            <?php foreach ($this->products as $product) { ?>
                 <div class="col-lg-12">
-                    <h2><?php echo $article->title; ?></h2>
-                    <p><?php echo $article->content; ?></p>
+                    <h2><?php echo $product->title; ?></h2>
+                    <p><?php echo $product->description; ?></p>
                 </div>
             <?php } ?>
             <!-- /.col-lg-12 -->

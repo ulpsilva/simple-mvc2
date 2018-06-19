@@ -1,17 +1,20 @@
 <?php
 
 /**
- * Article model
- * Table name: articles
+ * Product model
+ * Table name: products
  *
  * Developer: Lakmal Silva
  */
-class ArticleModel extends Model
+class ProductModel extends Model
 {
 
     public $id;
     public $title;
-    public $content;
+    public $description;
+    public $quantity;
+    public $price;
+    public $image;
     public $category_id;
 
     function __construct()
@@ -20,14 +23,17 @@ class ArticleModel extends Model
     }
 
     /**
-     * Create article
+     * Create product
      * @return bool|mixed
      */
     public function create()
     {
-        $query = "INSERT INTO `articles`(`title`, `content`, `category_id`) VALUES ('"
+        $query = "INSERT INTO `products`(`title`, `description`, `quantity`, `price`, `image`, `category_id`) VALUES ('"
             . $this->escape_string($this->title) . "','"
-            . $this->escape_string($this->content) . "','"
+            . $this->escape_string($this->description) . "','"
+            . $this->escape_string($this->quantity) . "','"
+            . $this->escape_string($this->price) . "','"
+            . $this->escape_string($this->image) . "','"
             . $this->escape_string($this->category_id) . "'"
             . ")";
 
@@ -39,17 +45,17 @@ class ArticleModel extends Model
     }
 
     /**
-     * Find all articles.
+     * Find all products.
      * @return array|bool
      */
     public function findAll()
     {
-        $result_set = $this->query("SELECT * FROM articles");
+        $result_set = $this->query("SELECT * FROM products");
         $the_obj_array = array();
 
         if ($result_set) {
             while ($row = mysqli_fetch_array($result_set)) {
-                $the_obj_array[] = $this->instantiation(new ArticleModel(), $row);
+                $the_obj_array[] = $this->instantiation(new ProductModel(), $row);
             }
             return $the_obj_array;
         } else {
@@ -58,30 +64,33 @@ class ArticleModel extends Model
     }
 
     /**
-     * Find article by id
+     * Find product by id
      * @param $id int
      * @return bool|Model
      */
     public function findById($id)
     {
-        $result_set = $this->query("SELECT * FROM articles WHERE id = $id LIMIT 1");
+        $result_set = $this->query("SELECT * FROM products WHERE id = $id LIMIT 1");
         if (mysqli_num_rows($result_set)) {
-            $found_article = mysqli_fetch_array($result_set);
-            return $this->instantiation(new ArticleModel(), $found_article);
+            $found_product = mysqli_fetch_array($result_set);
+            return $this->instantiation(new ProductModel(), $found_product);
         } else {
             return false;
         }
     }
 
     /**
-     * Update article
+     * Update product
      * @return bool|mixed
      */
     public function update()
     {
-        $query = "UPDATE `articles` SET "
+        $query = "UPDATE `products` SET "
             . "`title`='" . $this->escape_string($this->title) . "',"
-            . "`content`='" . $this->escape_string($this->content) . "',"
+            . "`description`='" . $this->escape_string($this->description) . "',"
+            . "`quantity`='" . $this->escape_string($this->quantity) . "',"
+            . "`price`='" . $this->escape_string($this->price) . "',"
+            . "`image`='" . $this->escape_string($this->image) . "',"
             . "`category_id`='" . $this->escape_string($this->category_id) . "' "
             . "WHERE `id`=" . $this->escape_string($this->id);
 
@@ -93,12 +102,12 @@ class ArticleModel extends Model
     }
 
     /**
-     * Delete article
+     * Delete product
      * @return bool|mysqli_result
      */
     public function delete()
     {
-        $query = "DELETE FROM `articles` "
+        $query = "DELETE FROM `products` "
             . "WHERE `id`=" . $this->escape_string($this->id);
 
         return $this->query($query);
