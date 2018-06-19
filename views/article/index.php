@@ -32,7 +32,11 @@
                                     <tr>
                                         <td><?php echo $article->id ?></td>
                                         <td><?php echo $article->title ?></td>
-                                        <td><?php echo $article->category_id ?></td>
+                                        <?php foreach ($this->categories as $category) {
+                                            if ($category->id == $article->category_id) {
+                                                echo "<td>" . $category->name . "</td>";
+                                            }
+                                        } ?>
                                         <td><a href="<?php echo URL . "article/show/" . $article->id ?>"><span
                                                         class="fa fa-search"></span></a> &nbsp; <a
                                                     href="<?php echo URL . "article/edit/" . $article->id ?>"><span

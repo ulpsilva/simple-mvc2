@@ -1,4 +1,6 @@
 <?php
+require "models/articleModel.php";
+require "models/categoryModel.php";
 
 /**
  * Index page controller
@@ -18,6 +20,10 @@ class IndexController extends Controller
      */
     function indexAction()
     {
+        $article = new ArticleModel();
+        $category = new CategoryModel();
+        $this->view->categories = $category->findAll();
+        $this->view->articles = $article->findAll();
         $this->view->render("index/index");
     }
 }

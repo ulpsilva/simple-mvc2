@@ -31,10 +31,14 @@ class ArticleController extends Controller
                 Session::addFlash("success", "Article created.");
                 Helper::redirect("article");
             } else {
+                $category = new CategoryModel();
+                $this->view->categories = $category->findAll();
                 $this->view->error = "Article creation failed.";
                 $this->view->render("article/new");
             }
         } else {
+            $category = new CategoryModel();
+            $this->view->categories = $category->findAll();
             $this->view->render("article/new");
         }
     }
@@ -46,6 +50,8 @@ class ArticleController extends Controller
     {
         Helper::guestRedirect();
         $article = new ArticleModel();
+        $category = new CategoryModel();
+        $this->view->categories = $category->findAll();
         $this->view->articles = $article->findAll();
         $this->view->render("article/index");
     }
@@ -61,6 +67,8 @@ class ArticleController extends Controller
         $article = $article->findById($id);
 
         if ($article) {
+            $category = new CategoryModel();
+            $this->view->categories = $category->findAll();
             $this->view->article = $article;
             $this->view->render("article/show");
         } else {
@@ -86,6 +94,8 @@ class ArticleController extends Controller
                 Session::addFlash("success", "Article updated.");
                 Helper::redirect("article/edit/" . $id);
             } else {
+                $category = new CategoryModel();
+                $this->view->categories = $category->findAll();
                 $this->view->error = "Article update failed.";
                 $this->view->article = $article;
                 $this->view->render("article/edit");
@@ -96,6 +106,8 @@ class ArticleController extends Controller
             $article = $article->findById($id);
 
             if ($article) {
+                $category = new CategoryModel();
+                $this->view->categories = $category->findAll();
                 $this->view->article = $article;
                 $this->view->render("article/edit");
             } else {

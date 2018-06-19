@@ -16,6 +16,9 @@
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo URL . "public/dist/js/sb-admin-2.js" ?>"></script>
 
+<!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+
 <!-- Custom JavaScript -->
 <script src="<?php echo URL . "public/dist/js/custom.js" ?>"></script>
 

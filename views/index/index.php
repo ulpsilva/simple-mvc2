@@ -8,6 +8,15 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
+        <div class="row">
+            <?php foreach ($this->articles as $article) { ?>
+                <div class="col-lg-12">
+                    <h2><?php echo $article->title; ?></h2>
+                    <p><?php echo $article->content; ?></p>
+                </div>
+            <?php } ?>
+            <!-- /.col-lg-12 -->
+        </div>
     </div>
     <!-- /#page-wrapper -->
 

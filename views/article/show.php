@@ -34,14 +34,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Category</label>
-                                <input type="text" class="form-control" disabled
-                                       value="<?php if (isset($this->article)) {
-                                           echo $this->article->category_id;
-                                       } ?>">
+                                <?php foreach ($this->categories as $category) {
+                                    if ($category->id == $this->article->category_id) {
+                                        echo "<input type='text' class='form-control' disabled
+                                       value='$category->name'>";
+                                    }
+                                } ?>
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea rows="5" disabled class="form-control"
+                                <textarea id="editor1" rows="5" disabled class="form-control"
                                 ><?php if (isset($this->article)) {
                                         echo $this->article->content;
                                     } ?></textarea>

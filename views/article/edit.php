@@ -31,14 +31,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Category</label>
-                                <input type="text" name="category_id" class="form-control" placeholder="Enter category"
-                                       required value="<?php if (isset($this->article)) {
-                                    echo $this->article->category_id;
-                                } ?>">
+                                <select name="category_id" class="form-control">
+                                    <?php foreach ($this->categories as $category) { ?>
+                                        <option value="<?php echo $category->id ?>"
+                                            <?php if($category->id == $this->article->category_id) { echo "selected"; } ?>
+                                        >
+                                            <?php echo $category->name ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea class="form-control" required name="content" rows="5"
+                                <textarea id="editor1" class="form-control" required name="content" rows="5"
                                 ><?php if (isset($this->article)) {
                                         echo $this->article->content;
                                     }

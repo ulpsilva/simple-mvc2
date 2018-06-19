@@ -87,7 +87,7 @@
                     <?php if (Session::isLogin()) { ?>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Category<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo URL . "category" ?>">Category list</a>
                                 </li>
@@ -99,7 +99,7 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-file-text fa-fw"></i> Article<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                            <ul class="nav  nav-second-level">
                                 <li>
                                     <a href="<?php echo URL . "article" ?>">Article list</a>
                                 </li>
