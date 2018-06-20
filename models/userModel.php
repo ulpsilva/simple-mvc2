@@ -14,6 +14,7 @@ class UserModel extends Model
     public $password;
     public $first_name;
     public $last_name;
+    public $role = "user";
 
     function __construct()
     {
@@ -61,11 +62,12 @@ class UserModel extends Model
      */
     public function create()
     {
-        $query = "INSERT INTO `users`(`username`, `password`, `first_name`, `last_name`) VALUES ('"
+        $query = "INSERT INTO `users`(`username`, `password`, `first_name`, `last_name`, `role`) VALUES ('"
             . $this->escape_string($this->username) . "','"
             . $this->escape_string(sha1($this->password)) . "','"
             . $this->escape_string($this->first_name) . "','"
-            . $this->escape_string($this->last_name) . "'"
+            . $this->escape_string($this->last_name) . "','"
+            . $this->escape_string($this->role) . "'"
             . ")";
 
         if ($this->query($query)) {
@@ -85,7 +87,8 @@ class UserModel extends Model
             . "`username`='" . $this->escape_string($this->username) . "',"
             . "`password`='" . $this->escape_string(sha1($this->password)) . "',"
             . "`first_name`='" . $this->escape_string($this->first_name) . "',"
-            . "`last_name`='" . $this->escape_string($this->last_name) . "' "
+            . "`first_name`='" . $this->escape_string($this->last_name) . "',"
+            . "`last_name`='" . $this->escape_string($this->role) . "' "
             . "WHERE `id`=" . $this->escape_string($this->id);
 
         if ($this->query($query)) {

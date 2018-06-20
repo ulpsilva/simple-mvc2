@@ -93,12 +93,29 @@ class Session
     }
 
     /**
+     * Get user role
+     * @return string
+     */
+    public static function userRole()
+    {
+        if (isset($_SESSION['current_user'])) {
+            return $_SESSION['current_user']->role;
+        } else {
+            return "guest";
+        }
+    }
+
+    /**
      * Get current user
-     * @return UserModel
+     * @return UserModel|bool
      */
     public static function getCurrentUser()
     {
-        return $_SESSION['current_user'];
+        if (isset($_SESSION['current_user'])) {
+            return $_SESSION['current_user'];
+        } else {
+            return false;
+        }
     }
 
     /**

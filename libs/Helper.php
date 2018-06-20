@@ -34,7 +34,18 @@ class Helper
      */
     public static function userRedirect($path = "")
     {
-        if (Session::isLogin()) {
+        if (Session::getCurrentUser() && Session::getCurrentUser()->role == "user") {
+            self::redirect($path);
+        }
+    }
+
+    /**
+     * Redirect logged in admins
+     * @param $path string
+     */
+    public static function adminRedirect($path = "")
+    {
+        if (Session::getCurrentUser() && Session::getCurrentUser()->role == "admin") {
             self::redirect($path);
         }
     }

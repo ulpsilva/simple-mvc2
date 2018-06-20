@@ -84,7 +84,7 @@
                     <li>
                         <a href="<?php echo URL ?>"><i class="fa fa-home fa-fw"></i> Home</a>
                     </li>
-                    <?php if (Session::isLogin()) { ?>
+                    <?php if (Session::userRole() == "admin") { ?>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

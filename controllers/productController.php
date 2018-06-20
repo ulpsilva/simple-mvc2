@@ -19,6 +19,7 @@ class ProductController extends Controller
     function newAction()
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $product = new ProductModel();
             $product->title = $_POST['title'];
@@ -76,6 +77,7 @@ class ProductController extends Controller
     function indexAction()
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $product = new ProductModel();
         $category = new CategoryModel();
         $this->view->categories = $category->findAll();
@@ -90,6 +92,7 @@ class ProductController extends Controller
     function showAction($id = 0)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $product = new ProductModel();
         $product = $product->findById($id);
 
@@ -110,6 +113,7 @@ class ProductController extends Controller
     function editAction($id = 0)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $product = new ProductModel();
             $product->id = $_POST['id'];
@@ -198,6 +202,7 @@ class ProductController extends Controller
     function deleteAction($id)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $product = new ProductModel();
         $product->id = $id;
 

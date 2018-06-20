@@ -19,6 +19,7 @@ class CategoryController extends Controller
     function newAction()
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
             $category->name = $_POST['name'];
@@ -46,6 +47,7 @@ class CategoryController extends Controller
     function indexAction()
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $category = new CategoryModel();
         $this->view->categories = $category->findAll();
         $this->view->render("category/index");
@@ -58,6 +60,7 @@ class CategoryController extends Controller
     function showAction($id = 0)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $category = new CategoryModel();
         $category = $category->findById($id);
 
@@ -76,6 +79,7 @@ class CategoryController extends Controller
     function editAction($id)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $category = new CategoryModel();
             $category->id = $_POST['id'];
@@ -117,6 +121,7 @@ class CategoryController extends Controller
     function deleteAction($id)
     {
         Helper::guestRedirect();
+        Helper::userRedirect();
         $category = new CategoryModel();
         $category->id = $id;
 
