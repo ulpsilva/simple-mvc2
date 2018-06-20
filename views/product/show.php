@@ -34,12 +34,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Category</label>
-                                <?php foreach ($this->categories as $category) {
-                                    if ($category->id == $this->product->category_id) {
-                                        echo "<input type='text' class='form-control' disabled
-                                       value='$category->name'>";
-                                    }
-                                } ?>
+                                <input type='text' class='form-control' disabled
+                                       value='<?php if (isset($this->category)) {
+                                           echo $this->category->name;
+                                       } ?>'>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
@@ -49,25 +47,23 @@
                                     } ?></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Quantity</label>
                                 <input type="text" class="form-control" disabled
                                        value="<?php if (isset($this->product)) {
                                            echo $this->product->quantity;
                                        } ?>">
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Price</label>
                                 <input type="text" class="form-control" disabled
                                        value="<?php if (isset($this->product)) {
                                            echo $this->product->price;
                                        } ?>">
                             </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" disabled
-                                       value="<?php if (isset($this->product)) {
-                                           echo $this->product->image;
-                                       } ?>">
+                            <div>
+                                <p style="font-weight: 600">Image</p>
+                                <img src="<?php echo URL . $this->product->image ?>" alt="product-image" width="250">
+                                <p></p>
                             </div>
                             <a href="<?php echo URL . "product" ?>" class="btn btn-default">Back</a>
                             <a href="<?php echo URL . "product/delete/" . $this->product->id ?>"

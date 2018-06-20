@@ -17,7 +17,7 @@
                         Product update form
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post">
+                        <form role="form" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" class="form-control"
                                    value="<?php if (isset($this->product)) {
                                        echo $this->product->id;
@@ -34,7 +34,9 @@
                                 <select name="category_id" class="form-control">
                                     <?php foreach ($this->categories as $category) { ?>
                                         <option value="<?php echo $category->id ?>"
-                                            <?php if($category->id == $this->product->category_id) { echo "selected"; } ?>
+                                            <?php if ($category->id == $this->product->category_id) {
+                                                echo "selected";
+                                            } ?>
                                         >
                                             <?php echo $category->name ?>
                                         </option>
@@ -51,22 +53,24 @@
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="text" name="image" class="form-control" placeholder="Enter product image"
-                                       required value="<?php if (isset($this->product)) {
-                                    echo $this->product->image;
-                                } ?>">
+                                <input type="file" name="image" class="form-control">
+                                <input type="hidden" name="image_old" class="form-control"
+                                       value="<?php if (isset($this->product)) {
+                                           echo $this->product->image;
+                                       } ?>"">
                             </div>
                             <div class="form-group">
                                 <label>Quantity</label>
-                                <input type="number" name="quantity" class="form-control" placeholder="Enter product quantity"
-                                       required value="<?php if (isset($this->product)) {
+                                <input type="number" name="quantity" class="form-control"
+                                       placeholder="Enter product quantity"
+                                       min="0" required value="<?php if (isset($this->product)) {
                                     echo $this->product->quantity;
                                 } ?>">
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
                                 <input type="number" name="price" class="form-control" placeholder="Enter product price"
-                                       required value="<?php if (isset($this->product)) {
+                                       min="0" required value="<?php if (isset($this->product)) {
                                     echo $this->product->price;
                                 } ?>">
                             </div>

@@ -1,6 +1,4 @@
 <?php
-require "models/productModel.php";
-require "models/categoryModel.php";
 
 /**
  * Index page controller

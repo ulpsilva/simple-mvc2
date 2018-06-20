@@ -518,8 +518,8 @@
             // Make sure the incoming data is actual JSON
             // Logic borrowed from http://json.org/json2.js
             if (rvalidchars.test(data.replace(rvalidescape, "@")
-                .replace(rvalidtokens, "]")
-                .replace(rvalidbraces, ""))) {
+                    .replace(rvalidtokens, "]")
+                    .replace(rvalidbraces, ""))) {
 
                 return (new Function("return " + data))();
 
@@ -920,27 +920,27 @@
     }
 
     /*
- * Create a callback list using the following parameters:
- *
- *	options: an optional list of space-separated options that will change how
- *			the callback list behaves or a more traditional option object
- *
- * By default a callback list will act like an event callback list and can be
- * "fired" multiple times.
- *
- * Possible options:
- *
- *	once:			will ensure the callback list can only be fired once (like a Deferred)
- *
- *	memory:			will keep track of previous values and will call any callback added
- *					after the list has been fired right away with the latest "memorized"
- *					values (like a Deferred)
- *
- *	unique:			will ensure a callback can only be added once (no duplicate in the list)
- *
- *	stopOnFalse:	interrupt callings when a callback returns false
- *
- */
+     * Create a callback list using the following parameters:
+     *
+     *	options: an optional list of space-separated options that will change how
+     *			the callback list behaves or a more traditional option object
+     *
+     * By default a callback list will act like an event callback list and can be
+     * "fired" multiple times.
+     *
+     * Possible options:
+     *
+     *	once:			will ensure the callback list can only be fired once (like a Deferred)
+     *
+     *	memory:			will keep track of previous values and will call any callback added
+     *					after the list has been fired right away with the latest "memorized"
+     *					values (like a Deferred)
+     *
+     *	unique:			will ensure a callback can only be added once (no duplicate in the list)
+     *
+     *	stopOnFalse:	interrupt callings when a callback returns false
+     *
+     */
     jQuery.Callbacks = function (options) {
 
         // Convert options from String-formatted to Object-formatted if needed
@@ -1909,11 +1909,11 @@
         _queueHooks: function (elem, type) {
             var key = type + "queueHooks";
             return jQuery._data(elem, key) || jQuery._data(elem, key, {
-                empty: jQuery.Callbacks("once memory").add(function () {
-                    jQuery.removeData(elem, type + "queue", true);
-                    jQuery.removeData(elem, key, true);
-                })
-            });
+                    empty: jQuery.Callbacks("once memory").add(function () {
+                        jQuery.removeData(elem, type + "queue", true);
+                        jQuery.removeData(elem, key, true);
+                    })
+                });
         }
     });
 
@@ -2640,9 +2640,9 @@
         };
 
     /*
- * Helper functions for managing events -- not part of the public interface.
- * Props to Dean Edwards' addEvent library for many of the ideas.
- */
+     * Helper functions for managing events -- not part of the public interface.
+     * Props to Dean Edwards' addEvent library for many of the ideas.
+     */
     jQuery.event = {
 
         add: function (elem, types, handler, data, selector) {
@@ -3259,7 +3259,7 @@
             // Events bubbling up the document may have been marked as prevented
             // by a handler lower down the tree; reflect the correct value.
             this.isDefaultPrevented = (src.defaultPrevented || src.returnValue === false ||
-                src.getPreventDefault && src.getPreventDefault()) ? returnTrue : returnFalse;
+            src.getPreventDefault && src.getPreventDefault()) ? returnTrue : returnFalse;
 
             // Event type
         } else {
@@ -3645,8 +3645,8 @@
     });
 
     jQuery.each(("blur focus focusin focusout load resize scroll unload click dblclick " +
-        "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-        "change select submit keydown keypress keyup error contextmenu").split(" "), function (i, name) {
+    "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+    "change select submit keydown keypress keyup error contextmenu").split(" "), function (i, name) {
 
         // Handle event binding
         jQuery.fn[name] = function (data, fn) {
@@ -3669,11 +3669,11 @@
         }
     });
     /*!
- * Sizzle CSS Selector Engine
- * Copyright 2012 jQuery Foundation and other contributors
- * Released under the MIT license
- * http://sizzlejs.com/
- */
+     * Sizzle CSS Selector Engine
+     * Copyright 2012 jQuery Foundation and other contributors
+     * Released under the MIT license
+     * http://sizzlejs.com/
+     */
     (function (window, undefined) {
 
         var cachedruns,
@@ -3702,15 +3702,15 @@
             slice = [].slice,
             // Use a stripped-down indexOf if a native one is unavailable
             indexOf = [].indexOf || function (elem) {
-                var i = 0,
-                    len = this.length;
-                for (; i < len; i++) {
-                    if (this[i] === elem) {
-                        return i;
+                    var i = 0,
+                        len = this.length;
+                    for (; i < len; i++) {
+                        if (this[i] === elem) {
+                            return i;
+                        }
                     }
-                }
-                return -1;
-            },
+                    return -1;
+                },
 
             // Augment a function for special use by Sizzle
             markFunction = function (fn, value) {
@@ -4178,14 +4178,14 @@
 
                 "CHILD": function (match) {
                     /* matches from matchExpr["CHILD"]
-				1 type (only|nth|...)
-				2 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
-				3 xn-component of xn+y argument ([+-]?\d*n|)
-				4 sign of xn-component
-				5 x of xn-component
-				6 sign of y-component
-				7 y of y-component
-			*/
+                     1 type (only|nth|...)
+                     2 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
+                     3 xn-component of xn+y argument ([+-]?\d*n|)
+                     4 sign of xn-component
+                     5 x of xn-component
+                     6 sign of y-component
+                     7 y of y-component
+                     */
                     match[1] = match[1].toLowerCase();
 
                     if (match[1] === "nth") {
@@ -4949,9 +4949,9 @@
                 }, implicitRelative, true),
                 matchers = [function (elem, context, xml) {
                     return (!leadingRelative && (xml || context !== outermostContext)) || (
-                        (checkContext = context).nodeType ?
-                            matchContext(elem, context, xml) :
-                            matchAnyContext(elem, context, xml));
+                            (checkContext = context).nodeType ?
+                                matchContext(elem, context, xml) :
+                                matchAnyContext(elem, context, xml));
                 }];
 
             for (; i < len; i++) {
@@ -5152,10 +5152,10 @@
                         if ((find = Expr.find[type])) {
                             // Search, expanding context for leading sibling combinators
                             if ((seed = find(
-                                token.matches[0].replace(rbackslash, ""),
-                                rsibling.test(tokens[0].type) && context.parentNode || context,
-                                xml
-                            ))) {
+                                    token.matches[0].replace(rbackslash, ""),
+                                    rsibling.test(tokens[0].type) && context.parentNode || context,
+                                    xml
+                                ))) {
 
                                 // If seed is empty or no tokens remain, we can return early
                                 tokens.splice(i, 1);
@@ -5438,13 +5438,13 @@
 
         is: function (selector) {
             return !!selector && (
-                typeof selector === "string" ?
-                    // If this is a positional/relative selector, check membership in the returned set
-                    // so $("p:first").is("p:last") won't return true for a doc with two "p".
-                    rneedsContext.test(selector) ?
-                        jQuery(selector, this.context).index(this[0]) >= 0 :
-                        jQuery.filter(selector, this).length > 0 :
-                    this.filter(selector).length > 0);
+                    typeof selector === "string" ?
+                        // If this is a positional/relative selector, check membership in the returned set
+                        // so $("p:first").is("p:last") won't return true for a doc with two "p".
+                        rneedsContext.test(selector) ?
+                            jQuery(selector, this.context).index(this[0]) >= 0 :
+                            jQuery.filter(selector, this).length > 0 :
+                        this.filter(selector).length > 0);
         },
 
         closest: function (selectors, context) {
@@ -5495,8 +5495,8 @@
 
         add: function (selector, context) {
             var set = typeof selector === "string" ?
-                jQuery(selector, context) :
-                jQuery.makeArray(selector && selector.nodeType ? [selector] : selector),
+                    jQuery(selector, context) :
+                    jQuery.makeArray(selector && selector.nodeType ? [selector] : selector),
                 all = jQuery.merge(this.get(), set);
 
             return this.pushStack(isDisconnected(set[0]) || isDisconnected(all[0]) ?
@@ -5676,7 +5676,7 @@
     }
 
     var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +
-        "header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
+            "header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
         rinlinejQuery = / jQuery\d+="(?:null|\d+)"/g,
         rleadingWhitespace = /^\s+/,
         rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,
@@ -6924,10 +6924,10 @@
 
     function augmentWidthOrHeight(elem, name, extra, isBorderBox) {
         var i = extra === (isBorderBox ? "border" : "content") ?
-            // If we already have the right measurement, avoid augmentation
-            4 :
-            // Otherwise initialize for horizontal or vertical properties
-            name === "width" ? 1 : 0,
+                // If we already have the right measurement, avoid augmentation
+                4 :
+                // Otherwise initialize for horizontal or vertical properties
+                name === "width" ? 1 : 0,
 
             val = 0;
 
@@ -6996,13 +6996,13 @@
 
         // use the active box-sizing model to add/subtract irrelevant styles
         return (val +
-            augmentWidthOrHeight(
-                elem,
-                name,
-                extra || (isBorderBox ? "border" : "content"),
-                valueIsBorderBox
-            )
-        ) + "px";
+                augmentWidthOrHeight(
+                    elem,
+                    name,
+                    extra || (isBorderBox ? "border" : "content"),
+                    valueIsBorderBox
+                )
+            ) + "px";
     }
 
 
@@ -7210,7 +7210,7 @@
                 .filter(function () {
                     return this.name && !this.disabled &&
                         (this.checked || rselectTextarea.test(this.nodeName) ||
-                            rinput.test(this.type));
+                        rinput.test(this.type));
                 })
                 .map(function (i, elem) {
                     var val = jQuery(this).val();
@@ -7315,21 +7315,21 @@
         _load = jQuery.fn.load,
 
         /* Prefilters
-	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
-	 * 2) These are called:
-	 *    - BEFORE asking for a transport
-	 *    - AFTER param serialization (s.data is a string if s.processData is true)
-	 * 3) key is the dataType
-	 * 4) the catchall symbol "*" can be used
-	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
-	 */
+         * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+         * 2) These are called:
+         *    - BEFORE asking for a transport
+         *    - AFTER param serialization (s.data is a string if s.processData is true)
+         * 3) key is the dataType
+         * 4) the catchall symbol "*" can be used
+         * 5) execution will start with transport dataType and THEN continue down to "*" if needed
+         */
         prefilters = {},
 
         /* Transports bindings
-	 * 1) key is the dataType
-	 * 2) the catchall symbol "*" can be used
-	 * 3) selection will start with transport dataType and THEN go to "*" if needed
-	 */
+         * 1) key is the dataType
+         * 2) the catchall symbol "*" can be used
+         * 3) selection will start with transport dataType and THEN go to "*" if needed
+         */
         transports = {},
 
         // Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
@@ -7571,16 +7571,16 @@
             processData: true,
             async: true,
             /*
-		timeout: 0,
-		data: null,
-		dataType: null,
-		username: null,
-		password: null,
-		cache: null,
-		throws: false,
-		traditional: false,
-		headers: {},
-		*/
+             timeout: 0,
+             data: null,
+             dataType: null,
+             username: null,
+             password: null,
+             cache: null,
+             throws: false,
+             traditional: false,
+             headers: {},
+             */
 
             accepts: {
                 xml: "application/xml, text/xml",
@@ -7880,8 +7880,8 @@
                 parts = rurl.exec(s.url.toLowerCase());
                 s.crossDomain = !!(parts &&
                     (parts[1] !== ajaxLocParts[1] || parts[2] !== ajaxLocParts[2] ||
-                        (parts[3] || (parts[1] === "http:" ? 80 : 443)) !=
-                        (ajaxLocParts[3] || (ajaxLocParts[1] === "http:" ? 80 : 443)))
+                    (parts[3] || (parts[1] === "http:" ? 80 : 443)) !=
+                    (ajaxLocParts[3] || (ajaxLocParts[1] === "http:" ? 80 : 443)))
                 );
             }
 
@@ -8027,10 +8027,10 @@
     });
 
     /* Handles responses to an ajax request:
- * - sets all responseXXX fields accordingly
- * - finds the right dataType (mediates between content-type and expected dataType)
- * - returns the corresponding response
- */
+     * - sets all responseXXX fields accordingly
+     * - finds the right dataType (mediates between content-type and expected dataType)
+     * - returns the corresponding response
+     */
     function ajaxHandleResponses(s, jqXHR, responses) {
 
         var ct, type, finalDataType, firstDataType,
@@ -8382,11 +8382,11 @@
 // (This is still attached to ajaxSettings for backward compatibility)
     jQuery.ajaxSettings.xhr = window.ActiveXObject ?
         /* Microsoft failed to properly
-	 * implement the XMLHttpRequest in IE7 (can't request local files),
-	 * so we use the ActiveXObject when it is available
-	 * Additionally XMLHttpRequest can be disabled in IE7/IE8 so
-	 * we need a fallback.
-	 */
+         * implement the XMLHttpRequest in IE7 (can't request local files),
+         * so we use the ActiveXObject when it is available
+         * Additionally XMLHttpRequest can be disabled in IE7/IE8 so
+         * we need a fallback.
+         */
         function () {
             return !this.isLocal && createStandardXHR() || createActiveXHR();
         } :

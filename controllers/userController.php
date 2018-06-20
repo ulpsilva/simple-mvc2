@@ -1,5 +1,4 @@
 <?php
-require "models/userModel.php";
 
 /**
  * User controller

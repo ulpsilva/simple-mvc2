@@ -45,8 +45,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        "<'ui grid'" +
+        dom: "<'ui grid'" +
         "<'row'" +
         "<'eight wide column'l>" +
         "<'right aligned eight wide column'f>" +
@@ -108,25 +107,25 @@
                         case 'first':
                             btnDisplay = lang.sFirst;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'previous':
                             btnDisplay = lang.sPrevious;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'next':
                             btnDisplay = lang.sNext;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'last':
                             btnDisplay = lang.sLast;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         default:

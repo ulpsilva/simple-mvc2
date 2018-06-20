@@ -39,8 +39,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        "<'row uk-grid'<'uk-width-1-2'l><'uk-width-1-2'f>>" +
+        dom: "<'row uk-grid'<'uk-width-1-2'l><'uk-width-1-2'f>>" +
         "<'row uk-grid dt-merge-grid'<'uk-width-1-1'tr>>" +
         "<'row uk-grid dt-merge-grid'<'uk-width-2-5'i><'uk-width-3-5'p>>",
         renderer: 'uikit'

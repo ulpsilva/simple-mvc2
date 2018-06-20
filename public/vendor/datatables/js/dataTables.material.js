@@ -45,8 +45,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        "<'mdl-grid'" +
+        dom: "<'mdl-grid'" +
         "<'mdl-cell mdl-cell--6-col'l>" +
         "<'mdl-cell mdl-cell--6-col'f>" +
         ">" +
@@ -106,25 +105,25 @@
                         case 'first':
                             btnDisplay = lang.sFirst;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'previous':
                             btnDisplay = lang.sPrevious;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'next':
                             btnDisplay = lang.sNext;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'last':
                             btnDisplay = lang.sLast;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         default:

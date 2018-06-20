@@ -45,8 +45,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        "<'row'<'col-md-6'l><'col-md-6'f>>" +
+        dom: "<'row'<'col-md-6'l><'col-md-6'f>>" +
         "<'row'<'col-md-12'tr>>" +
         "<'row'<'col-md-5'i><'col-md-7'p>>",
         renderer: 'bootstrap'
@@ -99,25 +98,25 @@
                         case 'first':
                             btnDisplay = lang.sFirst;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'previous':
                             btnDisplay = lang.sPrevious;
                             btnClass = button + (page > 0 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'next':
                             btnDisplay = lang.sNext;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         case 'last':
                             btnDisplay = lang.sLast;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' disabled');
+                                    '' : ' disabled');
                             break;
 
                         default:

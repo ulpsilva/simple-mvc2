@@ -17,7 +17,7 @@
                         Product creation form
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post">
+                        <form role="form" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" name="title" class="form-control" placeholder="Enter product title"
@@ -30,7 +30,9 @@
                                 <select class="form-control" name="category_id">
                                     <?php foreach ($this->categories as $category) { ?>
                                         <option value="<?php echo $category->id ?>"
-                                            <?php if(isset($_POST['category_id']) && $category->id == $_POST['category_id']) { echo "selected"; } ?>
+                                            <?php if (isset($_POST['category_id']) && $category->id == $_POST['category_id']) {
+                                                echo "selected";
+                                            } ?>
                                         >
                                             <?php echo $category->name ?>
                                         </option>
@@ -40,29 +42,27 @@
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea id="editor1" class="form-control" required name="description" rows="5"
-                                    ><?php if (isset($_POST['description'])) {
+                                ><?php if (isset($_POST['description'])) {
                                         echo $_POST['description'];
                                     }
                                     ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="text" name="image" class="form-control" placeholder="Enter product image"
-                                       required value="<?php if (isset($_POST['image'])) {
-                                    echo $_POST['image'];
-                                } ?>">
+                                <input type="file" name="image" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Quantity</label>
-                                <input type="number" name="quantity" class="form-control" placeholder="Enter product quantity"
-                                       required value="<?php if (isset($_POST['quantity'])) {
+                                <input type="number" name="quantity" class="form-control"
+                                       placeholder="Enter product quantity"
+                                       min="0" required value="<?php if (isset($_POST['quantity'])) {
                                     echo $_POST['quantity'];
                                 } ?>">
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
                                 <input type="number" name="price" class="form-control" placeholder="Enter product price"
-                                       required value="<?php if (isset($_POST['price'])) {
+                                       min="0" required value="<?php if (isset($_POST['price'])) {
                                     echo $_POST['price'];
                                 } ?>">
                             </div>

@@ -1,8 +1,8 @@
 /* @license
-morris.js v0.5.0
-Copyright 2014 Olly Smith All rights reserved.
-Licensed under the BSD-2-Clause License.
-*/
+ morris.js v0.5.0
+ Copyright 2014 Olly Smith All rights reserved.
+ Licensed under the BSD-2-Clause License.
+ */
 
 
 (function () {
@@ -29,11 +29,11 @@ Licensed under the BSD-2-Clause License.
             return child;
         },
         __indexOf = [].indexOf || function (item) {
-            for (var i = 0, l = this.length; i < l; i++) {
-                if (i in this && this[i] === item) return i;
-            }
-            return -1;
-        };
+                for (var i = 0, l = this.length; i < l; i++) {
+                    if (i in this && this[i] === item) return i;
+                }
+                return -1;
+            };
 
     Morris = window.Morris = {};
 
@@ -1056,11 +1056,11 @@ Licensed under the BSD-2-Clause License.
                 coord = coords[i];
                 if (coord.y != null) {
                     nextCoord = coords[i + 1] || {
-                        y: null
-                    };
+                            y: null
+                        };
                     prevCoord = coords[i - 1] || {
-                        y: null
-                    };
+                            y: null
+                        };
                     if ((prevCoord.y != null) && (nextCoord.y != null)) {
                         _results.push(grad(prevCoord, nextCoord));
                     } else if (prevCoord.y != null) {
@@ -1356,7 +1356,8 @@ Licensed under the BSD-2-Clause License.
             if (this.options.behaveLikeLine) {
                 range = (function () {
                     _results = [];
-                    for (var _i = 0, _ref = this.options.ykeys.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; 0 <= _ref ? _i++ : _i--) {
+                    for (var _i = 0,
+                             _ref = this.options.ykeys.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; 0 <= _ref ? _i++ : _i--) {
                         _results.push(_i);
                     }
                     return _results;

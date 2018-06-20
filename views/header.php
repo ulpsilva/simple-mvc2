@@ -110,6 +110,9 @@
                             <!-- /.nav-second-level -->
                         </li>
                     <?php } ?>
+                    <li>
+                        <a href="<?php echo URL . "cart" ?>"><i class="fa fa-shopping-cart fa-fw"></i> Shopping cart</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

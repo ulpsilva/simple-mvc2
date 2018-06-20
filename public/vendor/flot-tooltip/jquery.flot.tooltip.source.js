@@ -142,19 +142,19 @@
             // Here is some voodoo magic for determining the distance to a line form a given point {x, y}.
             var dotLineLength = function (x, y, x0, y0, x1, y1, o) {
                 if (o && !(o =
-                    function (x, y, x0, y0, x1, y1) {
-                        if (typeof x0 !== 'undefined') return {x: x0, y: y};
-                        else if (typeof y0 !== 'undefined') return {x: x, y: y0};
+                        function (x, y, x0, y0, x1, y1) {
+                            if (typeof x0 !== 'undefined') return {x: x0, y: y};
+                            else if (typeof y0 !== 'undefined') return {x: x, y: y0};
 
-                        var left,
-                            tg = -1 / ((y1 - y0) / (x1 - x0));
+                            var left,
+                                tg = -1 / ((y1 - y0) / (x1 - x0));
 
-                        return {
-                            x: left = (x1 * (x * tg - y + y0) + x0 * (x * -tg + y - y1)) / (tg * (x1 - x0) + y0 - y1),
-                            y: tg * left - tg * x + y
-                        };
-                    }(x, y, x0, y0, x1, y1),
-                o.x >= Math.min(x0, x1) && o.x <= Math.max(x0, x1) && o.y >= Math.min(y0, y1) && o.y <= Math.max(y0, y1))
+                            return {
+                                x: left = (x1 * (x * tg - y + y0) + x0 * (x * -tg + y - y1)) / (tg * (x1 - x0) + y0 - y1),
+                                y: tg * left - tg * x + y
+                            };
+                        }(x, y, x0, y0, x1, y1),
+                    o.x >= Math.min(x0, x1) && o.x <= Math.max(x0, x1) && o.y >= Math.min(y0, y1) && o.y <= Math.max(y0, y1))
                 ) {
                     var l1 = lineDistance(x, y, x0, y0), l2 = lineDistance(x, y, x1, y1);
                     return l1 > l2 ? l2 : l1;
@@ -256,10 +256,10 @@
             }
 
             /* 
-               The section applies the new positioning ONLY if pos.x and pos.y
-               are numbers. If they are undefined or not a number, use the last
-               known numerical position. This hack fixes a bug that kept pie 
-               charts from keeping their tooltip positioning.
+             The section applies the new positioning ONLY if pos.x and pos.y
+             are numbers. If they are undefined or not a number, use the last
+             known numerical position. This hack fixes a bug that kept pie 
+             charts from keeping their tooltip positioning.
              */
 
             if (isNaN(pos.x)) {
@@ -403,9 +403,9 @@
         }
 
         /* replacement of %ct and other multi-character templates must
-           precede the replacement of single-character templates 
-           to avoid conflict between '%c' and '%ct'  and similar substrings
-        */
+         precede the replacement of single-character templates 
+         to avoid conflict between '%c' and '%ct'  and similar substrings
+         */
         if (customText)
             content = content.replace(customTextPattern, customText);
 

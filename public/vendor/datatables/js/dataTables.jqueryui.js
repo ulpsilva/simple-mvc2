@@ -45,8 +45,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        '<"' + toolbar_prefix + 'tl ui-corner-tr"lfr>' +
+        dom: '<"' + toolbar_prefix + 'tl ui-corner-tr"lfr>' +
         't' +
         '<"' + toolbar_prefix + 'bl ui-corner-br"ip>',
         renderer: 'jqueryui'

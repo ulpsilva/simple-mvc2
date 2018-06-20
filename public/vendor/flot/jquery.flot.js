@@ -1,9 +1,9 @@
 /* Javascript plotting library for jQuery, version 0.8.3.
 
-Copyright (c) 2007-2014 IOLA and Ole Laursen.
-Licensed under the MIT license.
+ Copyright (c) 2007-2014 IOLA and Ole Laursen.
+ Licensed under the MIT license.
 
-*/
+ */
 
 // first an inline dependency, jquery.colorhelpers.js, we inline it here
 // for convenience
@@ -2226,8 +2226,8 @@ Licensed under the MIT license.
                     if (isNaN(v) || v < axis.min || v > axis.max
                         // skip those lying on the axes if we got a border
                         || (t == "full"
-                            && ((typeof bw == "object" && bw[axis.position] > 0) || bw > 0)
-                            && (v == axis.min || v == axis.max)))
+                        && ((typeof bw == "object" && bw[axis.position] > 0) || bw > 0)
+                        && (v == axis.min || v == axis.max)))
                         continue;
 
                     if (axis.direction == "x") {
@@ -3045,9 +3045,9 @@ Licensed under the MIT license.
 
                         // for a bar graph, the cursor must be inside the bar
                         if (series[i].bars.horizontal ?
-                            (mx <= Math.max(b, x) && mx >= Math.min(b, x) &&
+                                (mx <= Math.max(b, x) && mx >= Math.min(b, x) &&
                                 my >= y + barLeft && my <= y + barRight) :
-                            (mx >= x + barLeft && mx <= x + barRight &&
+                                (mx >= x + barLeft && mx <= x + barRight &&
                                 my >= Math.min(b, y) && my <= Math.max(b, y)))
                             item = [i, j / ps];
                     }
@@ -3118,8 +3118,8 @@ Licensed under the MIT license.
                     var h = highlights[i];
                     if (h.auto == eventname &&
                         !(item && h.series == item.series &&
-                            h.point[0] == item.datapoint[0] &&
-                            h.point[1] == item.datapoint[1]))
+                        h.point[0] == item.datapoint[0] &&
+                        h.point[1] == item.datapoint[1]))
                         unhighlight(h.series, h.point);
                 }
 

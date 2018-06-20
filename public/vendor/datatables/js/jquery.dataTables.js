@@ -901,10 +901,10 @@
                 }
 
                 /* If the element we are initialising has the same ID as a table which was previously
-				 * initialised, but the table nodes don't match (from before) then we destroy the old
-				 * instance by simply deleting it. This is under the assumption that the table has been
-				 * destroyed by other methods. Anyone using non-id selectors will need to do this manually
-				 */
+                 * initialised, but the table nodes don't match (from before) then we destroy the old
+                 * instance by simply deleting it. This is under the assumption that the table has been
+                 * destroyed by other methods. Anyone using non-id selectors will need to do this manually
+                 */
                 if (s.sTableId == this.id) {
                     allSettings.splice(i, 1);
                     break;
@@ -1023,8 +1023,8 @@
             // @todo Remove in 1.11
             if (oInit.bJQueryUI) {
                 /* Use the JUI classes object for display. You could clone the oStdClasses object if
-				 * you want to have multiple tables with multiple independent classes
-				 */
+                 * you want to have multiple tables with multiple independent classes
+                 */
                 $.extend(oClasses, DataTable.ext.oJUIClasses, oInit.oClasses);
 
                 if (oInit.sDom === defaults.sDom && defaults.sDom === "lfrtip") {
@@ -1064,9 +1064,9 @@
 
             if (oLanguage.sUrl !== "") {
                 /* Get the language definitions from a file - because this Ajax call makes the language
-				 * get async to the remainder of this function we use bInitHandedOff to indicate that
-				 * _fnInitialise will be fired by the returned Ajax handler, rather than the constructor
-				 */
+                 * get async to the remainder of this function we use bInitHandedOff to indicate that
+                 * _fnInitialise will be fired by the returned Ajax handler, rather than the constructor
+                 */
                 $.ajax({
                     dataType: 'json',
                     url: oLanguage.sUrl,
@@ -1085,8 +1085,8 @@
             }
 
             /*
-			 * Stripes
-			 */
+             * Stripes
+             */
             if (oInit.asStripeClasses === null) {
                 oSettings.asStripeClasses = [
                     oClasses.sStripeOdd,
@@ -1098,16 +1098,16 @@
             var stripeClasses = oSettings.asStripeClasses;
             var rowOne = $this.children('tbody').find('tr').eq(0);
             if ($.inArray(true, $.map(stripeClasses, function (el, i) {
-                return rowOne.hasClass(el);
-            })) !== -1) {
+                    return rowOne.hasClass(el);
+                })) !== -1) {
                 $('tbody tr', this).removeClass(stripeClasses.join(' '));
                 oSettings.asDestroyStripes = stripeClasses.slice();
             }
 
             /*
-			 * Columns
-			 * See if we should load columns automatically or use defined ones
-			 */
+             * Columns
+             * See if we should load columns automatically or use defined ones
+             */
             var anThs = [];
             var aoColumnsInit;
             var nThead = this.getElementsByTagName('thead');
@@ -1138,8 +1138,8 @@
             });
 
             /* HTML5 attribute detection - build an mData object automatically if the
-			 * attributes are found
-			 */
+             * attributes are found
+             */
             if (rowOne.length) {
                 var a = function (cell, name) {
                     return cell.getAttribute('data-' + name) !== null ? name : null;
@@ -1177,9 +1177,9 @@
 
 
             /*
-			 * Sorting
-			 * @todo For modularisation (1.11) this needs to do into a sort start up handler
-			 */
+             * Sorting
+             * @todo For modularisation (1.11) this needs to do into a sort start up handler
+             */
 
             // If aaSorting is not defined, then we use the first indicator in asSorting
             // in case that has been altered, so the default sort reflects that option
@@ -1191,8 +1191,8 @@
             }
 
             /* Do a first pass on the sorting classes (allows any size changes to be taken into
-			 * account, and also will apply sorting disabled classes if disabled
-			 */
+             * account, and also will apply sorting disabled classes if disabled
+             */
             _fnSortingClasses(oSettings);
 
             if (features.bSort) {
@@ -1219,9 +1219,9 @@
 
 
             /*
-			 * Final init
-			 * Cache the header, body and footer as required, creating them if needed
-			 */
+             * Final init
+             * Cache the header, body and footer as required, creating them if needed
+             */
 
             // Work around for Webkit bug 83867 - store the caption-side before removing from doc
             var captions = $this.children('caption').each(function () {
@@ -1263,9 +1263,9 @@
             }
             else if (oSettings.bDeferLoading || _fnDataSource(oSettings) == 'dom') {
                 /* Grab the data from the page - only do this when deferred loading or no Ajax
-				 * source since there is no point in reading the DOM data if we are then going
-				 * to replace it with Ajax data
-				 */
+                 * source since there is no point in reading the DOM data if we are then going
+                 * to replace it with Ajax data
+                 */
                 _fnAddTr(oSettings, $(oSettings.nTBody).children('tr'));
             }
 
@@ -1276,8 +1276,8 @@
             oSettings.bInitialised = true;
 
             /* Check if we need to initialise the table (it might not have been handed off to the
-			 * language processor)
-			 */
+             * language processor)
+             */
             if (bInitHandedOff === false) {
                 _fnInitialise(oSettings);
             }
@@ -1288,13 +1288,13 @@
 
 
     /*
-	 * It is useful to have variables which are scoped locally so only the
-	 * DataTables functions can access them and they don't leak into global space.
-	 * At the same time these functions are often useful over multiple files in the
-	 * core and API, so we list, or at least document, all variables which are used
-	 * by DataTables as private variables here. This also ensures that there is no
-	 * clashing of variable names and that they can easily referenced for reuse.
-	 */
+     * It is useful to have variables which are scoped locally so only the
+     * DataTables functions can access them and they don't leak into global space.
+     * At the same time these functions are often useful over multiple files in the
+     * core and API, so we list, or at least document, all variables which are used
+     * by DataTables as private variables here. This also ensures that there is no
+     * clashing of variable names and that they can easily referenced for reuse.
+     */
 
 
     // Defined else where
@@ -1661,8 +1661,8 @@
         var zeroRecords = lang.sZeroRecords;
 
         /* Backwards compatibility - if there is no sEmptyTable given, then use the same as
-		 * sZeroRecords - assuming that is given.
-		 */
+         * sZeroRecords - assuming that is given.
+         */
         if (!lang.sEmptyTable && zeroRecords &&
             defaults.sEmptyTable === "No data available in table") {
             _fnMap(lang, lang, 'sZeroRecords', 'sEmptyTable');
@@ -1952,8 +1952,8 @@
             _fnMap(oCol, oOptions, "sWidth", "sWidthOrig");
 
             /* iDataSort to be applied (backwards compatibility), but aDataSort will take
-			 * priority if defined
-			 */
+             * priority if defined
+             */
             if (oOptions.iDataSort !== undefined) {
                 oCol.aDataSort = [oOptions.iDataSort];
             }
@@ -1969,8 +1969,8 @@
             return typeof src === 'string' && src.indexOf('@') !== -1;
         };
         oCol._bAttrSrc = $.isPlainObject(mDataSrc) && (
-            attrTest(mDataSrc.sort) || attrTest(mDataSrc.type) || attrTest(mDataSrc.filter)
-        );
+                attrTest(mDataSrc.sort) || attrTest(mDataSrc.type) || attrTest(mDataSrc.filter)
+            );
         oCol._setter = null;
 
         oCol.fnGetData = function (rowData, type, meta) {
@@ -2469,11 +2469,11 @@
         else if (typeof mSource === 'string' && (mSource.indexOf('.') !== -1 ||
             mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1)) {
             /* If there is a . in the source string then the data source is in a
-			 * nested object so we loop over the data for each level to get the next
-			 * level down. On each loop we test for undefined, and if found immediately
-			 * return. This allows entire objects to be missing and sDefaultContent to
-			 * be used if defined, rather than throwing an error
-			 */
+             * nested object so we loop over the data for each level to get the next
+             * level down. On each loop we test for undefined, and if found immediately
+             * return. This allows entire objects to be missing and sDefaultContent to
+             * be used if defined, rather than throwing an error
+             */
             var fetchData = function (data, type, src) {
                 var arrayNotation, funcNotation, out, innerSrc;
 
@@ -2555,10 +2555,10 @@
     function _fnSetObjectDataFn(mSource) {
         if ($.isPlainObject(mSource)) {
             /* Unlike get, only the underscore (global) option is used for for
-			 * setting data since we don't know the type here. This is why an object
-			 * option is not documented for `mData` (which is read/write), but it is
-			 * for `mRender` which is read only.
-			 */
+             * setting data since we don't know the type here. This is why an object
+             * option is not documented for `mData` (which is read/write), but it is
+             * for `mRender` which is read only.
+             */
             return _fnSetObjectDataFn(mSource._);
         }
         else if (mSource === null) {
@@ -2917,8 +2917,8 @@
             row.anCells = cells;
 
             /* Use a private property on the node to allow reserve mapping from the node
-			 * to the aoData array for fast look up
-			 */
+             * to the aoData array for fast look up
+             */
             nTr._DT_RowIndex = iRow;
 
             /* Special parameters can be given by the data source to be used on the row */
@@ -3149,8 +3149,8 @@
                 iColspan = 1;
 
                 /* Check to see if there is already a cell (row/colspan) covering our target
-				 * insert point. If there is, then there is nothing to do.
-				 */
+                 * insert point. If there is, then there is nothing to do.
+                 */
                 if (aApplied[i][j] === undefined) {
                     nLocalTr.appendChild(aoLocal[i][j].cell);
                     aApplied[i][j] = 1;
@@ -3397,8 +3397,8 @@
                     }
 
                     /* The attribute can be in the format of "#id.class", "#id" or "class" This logic
-					 * breaks the string into parts and applies them as needed
-					 */
+                     * breaks the string into parts and applies them as needed
+                     */
                     if (sAttr.indexOf('.') != -1) {
                         var aSplit = sAttr.split('.');
                         nNewNode.id = aSplit[0].substr(1, aSplit[0].length - 1);
@@ -3523,8 +3523,8 @@
                     iRowspan = (!iRowspan || iRowspan === 0 || iRowspan === 1) ? 1 : iRowspan;
 
                     /* There might be colspan cells already in this row, so shift our target
-					 * accordingly
-					 */
+                     * accordingly
+                     */
                     iColShifted = fnShiftCol(aLayout, i, iColumn);
 
                     /* Cache calculation for unique columns */
@@ -4181,12 +4181,12 @@
 
         if (smart) {
             /* For smart filtering we want to allow the search to work regardless of
-			 * word order. We also want double quoted text to be preserved, so word
-			 * order is important - a la google. So this is what we want to
-			 * generate:
-			 *
-			 * ^(?=.*?\bone\b)(?=.*?\btwo three\b)(?=.*?\bfour\b).*$
-			 */
+             * word order. We also want double quoted text to be preserved, so word
+             * order is important - a la google. So this is what we want to
+             * generate:
+             *
+             * ^(?=.*?\bone\b)(?=.*?\btwo three\b)(?=.*?\bfour\b).*$
+             */
             var a = $.map(search.match(/"[^"]+"|[^ ]+/g) || [''], function (word) {
                 if (word.charAt(0) === '"') {
                     var m = word.match(/^"(.*)"$/);
@@ -4573,9 +4573,9 @@
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Note that most of the paging logic is done in
-	 * DataTable.ext.pager
-	 */
+     * Note that most of the paging logic is done in
+     * DataTable.ext.pager
+     */
 
     /**
      * Generate the node required for default pagination
@@ -4764,21 +4764,21 @@
         }
 
         /*
-		 * The HTML structure that we want to generate in this function is:
-		 *  div - scroller
-		 *    div - scroll head
-		 *      div - scroll head inner
-		 *        table - scroll head table
-		 *          thead - thead
-		 *    div - scroll body
-		 *      table - table (master table)
-		 *        thead - thead clone for sizing
-		 *        tbody - tbody
-		 *    div - scroll foot
-		 *      div - scroll foot inner
-		 *        table - scroll foot table
-		 *          tfoot - tfoot
-		 */
+         * The HTML structure that we want to generate in this function is:
+         *  div - scroller
+         *    div - scroll head
+         *      div - scroll head inner
+         *        table - scroll head table
+         *          thead - thead
+         *    div - scroll body
+         *      table - table (master table)
+         *        thead - thead clone for sizing
+         *        tbody - tbody
+         *    div - scroll foot
+         *      div - scroll foot inner
+         *        table - scroll foot table
+         *          tfoot - tfoot
+         */
         var scroller = $(_div, {'class': classes.sScrollWrapper})
             .append(
                 $(_div, {'class': classes.sScrollHead})
@@ -4947,8 +4947,8 @@
         }
 
         /*
-		 * 1. Re-create the table inside the scrolling div
-		 */
+         * 1. Re-create the table inside the scrolling div
+         */
 
         // Remove the old minimised thead and tfoot elements in the inner table
         table.children('thead, tfoot').remove();
@@ -4967,8 +4967,8 @@
 
 
         /*
-		 * 2. Take live measurements from the DOM - do not alter the DOM itself!
-		 */
+         * 2. Take live measurements from the DOM - do not alter the DOM itself!
+         */
 
         // Remove old sizing and apply the calculated column widths
         // Get the unique column headers in the newly created (cloned) header. We want to apply the
@@ -5056,8 +5056,8 @@
 
 
         /*
-		 * 3. Apply the measurements
-		 */
+         * 3. Apply the measurements
+         */
 
         // "Hide" the header and footer that we used for the sizing. We need to keep
         // the content of the cell so that the width applied to the header and body
@@ -5080,7 +5080,7 @@
         if (table.outerWidth() < sanityWidth) {
             // The min width depends upon if we have a vertical scrollbar visible or not */
             correction = ((divBodyEl.scrollHeight > divBodyEl.offsetHeight ||
-                divBody.css('overflow-y') == "scroll")) ?
+            divBody.css('overflow-y') == "scroll")) ?
                 sanityWidth + barWidth :
                 sanityWidth;
 
@@ -5110,13 +5110,13 @@
 
 
         /*
-		 * 4. Clean up
-		 */
+         * 4. Clean up
+         */
         if (!scrollY) {
             /* IE7< puts a vertical scrollbar in place (when it shouldn't be) due to subtracting
-			 * the scrollbar height from the visible display, rather than adding it on. We need to
-			 * set the height in order to sort this. Don't want to do it in any other browsers.
-			 */
+             * the scrollbar height from the visible display, rather than adding it on. We need to
+             * set the height in order to sort this. Don't want to do it in any other browsers.
+             */
             if (ie67) {
                 divBodyStyle.height = _fnStringToCss(tableEl.offsetHeight + barWidth);
             }
@@ -5233,10 +5233,10 @@
         }
 
         /* If the number of columns in the DOM equals the number that we have to
-		 * process in DataTables, then we can use the offsets that are created by
-		 * the web- browser. No custom sizes can be set in order for this to happen,
-		 * nor scrolling used
-		 */
+         * process in DataTables, then we can use the offsets that are created by
+         * the web- browser. No custom sizes can be set in order for this to happen,
+         * nor scrolling used
+         */
         if (ie67 || !userInputs && !scrollX && !scrollY &&
             columnCount == _fnVisbleColumns(oSettings) &&
             columnCount == headerCells.length
@@ -5630,26 +5630,26 @@
             }
 
             /* Do the sort - here we want multi-column sorting based on a given data source (column)
-			 * and sorting function (from oSort) in a certain direction. It's reasonably complex to
-			 * follow on it's own, but this is what we want (example two column sorting):
-			 *  fnLocalSorting = function(a,b){
-			 *    var iTest;
-			 *    iTest = oSort['string-asc']('data11', 'data12');
-			 *      if (iTest !== 0)
-			 *        return iTest;
-			 *    iTest = oSort['numeric-desc']('data21', 'data22');
-			 *    if (iTest !== 0)
-			 *      return iTest;
-			 *    return oSort['numeric-asc']( aiOrig[a], aiOrig[b] );
-			 *  }
-			 * Basically we have a test for each sorting column, if the data in that column is equal,
-			 * test the next column. If all columns match, then we use a numeric sort on the row
-			 * positions in the original data array to provide a stable sort.
-			 *
-			 * Note - I know it seems excessive to have two sorting methods, but the first is around
-			 * 15% faster, so the second is only maintained for backwards compatibility with sorting
-			 * methods which do not have a pre-sort formatting function.
-			 */
+             * and sorting function (from oSort) in a certain direction. It's reasonably complex to
+             * follow on it's own, but this is what we want (example two column sorting):
+             *  fnLocalSorting = function(a,b){
+             *    var iTest;
+             *    iTest = oSort['string-asc']('data11', 'data12');
+             *      if (iTest !== 0)
+             *        return iTest;
+             *    iTest = oSort['numeric-desc']('data21', 'data22');
+             *    if (iTest !== 0)
+             *      return iTest;
+             *    return oSort['numeric-asc']( aiOrig[a], aiOrig[b] );
+             *  }
+             * Basically we have a test for each sorting column, if the data in that column is equal,
+             * test the next column. If all columns match, then we use a numeric sort on the row
+             * positions in the original data array to provide a stable sort.
+             *
+             * Note - I know it seems excessive to have two sorting methods, but the first is around
+             * 15% faster, so the second is only maintained for backwards compatibility with sorting
+             * methods which do not have a pre-sort formatting function.
+             */
             if (formatters === aSort.length) {
                 // All sort types have formatting functions
                 displayMaster.sort(function (a, b) {
@@ -5742,9 +5742,9 @@
                 }
 
                 label = sTitle + (nextSort === "asc" ?
-                        oAria.sSortAscending :
-                        oAria.sSortDescending
-                );
+                            oAria.sSortAscending :
+                            oAria.sSortDescending
+                    );
             }
             else {
                 label = sTitle;
@@ -6005,8 +6005,8 @@
         }
 
         /* Allow custom and plug-in manipulation functions to alter the saved data set and
-		 * cancelling of loading by returning false
-		 */
+         * cancelling of loading by returning false
+         */
         var abStateLoad = _fnCallbackFire(settings, 'aoStateLoadParams', 'stateLoadParams', [settings, state]);
         if ($.inArray(false, abStateLoad) !== -1) {
             return;
@@ -7441,15 +7441,15 @@
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Rows
-	 *
-	 * {}          - no selector - use all available rows
-	 * {integer}   - row aoData index
-	 * {node}      - TR node
-	 * {string}    - jQuery selector to apply to the TR elements
-	 * {array}     - jQuery array of nodes, or simply an array of TR nodes
-	 *
-	 */
+     * Rows
+     *
+     * {}          - no selector - use all available rows
+     * {integer}   - row aoData index
+     * {node}      - TR node
+     * {string}    - jQuery selector to apply to the TR elements
+     * {array}     - jQuery array of nodes, or simply an array of TR nodes
+     *
+     */
 
 
     var __row_selector = function (settings, selector, opts) {
@@ -7963,15 +7963,15 @@
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Columns
-	 *
-	 * {integer}           - column index (>=0 count from left, <0 count from right)
-	 * "{integer}:visIdx"  - visible column index (i.e. translate to column index)  (>=0 count from left, <0 count from right)
-	 * "{integer}:visible" - alias for {integer}:visIdx  (>=0 count from left, <0 count from right)
-	 * "{string}:name"     - column name
-	 * "{string}"          - jQuery selector on column header nodes
-	 *
-	 */
+     * Columns
+     *
+     * {integer}           - column index (>=0 count from left, <0 count from right)
+     * "{integer}:visIdx"  - visible column index (i.e. translate to column index)  (>=0 count from left, <0 count from right)
+     * "{integer}:visible" - alias for {integer}:visIdx  (>=0 count from left, <0 count from right)
+     * "{string}:name"     - column name
+     * "{string}"          - jQuery selector on column header nodes
+     *
+     */
 
     // can be an array of these items, comma separated list, or an array of comma
     // separated lists
@@ -8627,8 +8627,8 @@
     );
 
     /*
-	 * State API methods
-	 */
+     * State API methods
+     */
 
     _api_register('state()', function () {
         return this.context.length ?
@@ -9409,20 +9409,20 @@
 
 
     /*
-	 * Developer note: The properties of the object below are given in Hungarian
-	 * notation, that was used as the interface for DataTables prior to v1.10, however
-	 * from v1.10 onwards the primary interface is camel case. In order to avoid
-	 * breaking backwards compatibility utterly with this change, the Hungarian
-	 * version is still, internally the primary interface, but is is not documented
-	 * - hence the @name tags in each doc comment. This allows a Javascript function
-	 * to create a map from Hungarian notation to camel case (going the other direction
-	 * would require each property to be listed, which would at around 3K to the size
-	 * of DataTables, while this method is about a 0.5K hit.
-	 *
-	 * Ultimately this does pave the way for Hungarian notation to be dropped
-	 * completely, but that is a massive amount of work and will break current
-	 * installs (therefore is on-hold until v2).
-	 */
+     * Developer note: The properties of the object below are given in Hungarian
+     * notation, that was used as the interface for DataTables prior to v1.10, however
+     * from v1.10 onwards the primary interface is camel case. In order to avoid
+     * breaking backwards compatibility utterly with this change, the Hungarian
+     * version is still, internally the primary interface, but is is not documented
+     * - hence the @name tags in each doc comment. This allows a Javascript function
+     * to create a map from Hungarian notation to camel case (going the other direction
+     * would require each property to be listed, which would at around 3K to the size
+     * of DataTables, while this method is about a 0.5K hit.
+     *
+     * Ultimately this does pave the way for Hungarian notation to be dropped
+     * completely, but that is a massive amount of work and will break current
+     * installs (therefore is on-hold until v2).
+     */
 
     /**
      * Initialisation options that can be given to DataTables at initialisation
@@ -11620,9 +11620,9 @@
 
 
     /*
-	 * Developer note - See note in model.defaults.js about the use of Hungarian
-	 * notation and camel case.
-	 */
+     * Developer note - See note in model.defaults.js about the use of Hungarian
+     * notation and camel case.
+     */
 
     /**
      * Column options that can be given to DataTables at initialisation time.
@@ -14163,25 +14163,25 @@
                                 case 'first':
                                     btnDisplay = lang.sFirst;
                                     btnClass = button + (page > 0 ?
-                                        '' : ' ' + classes.sPageButtonDisabled);
+                                            '' : ' ' + classes.sPageButtonDisabled);
                                     break;
 
                                 case 'previous':
                                     btnDisplay = lang.sPrevious;
                                     btnClass = button + (page > 0 ?
-                                        '' : ' ' + classes.sPageButtonDisabled);
+                                            '' : ' ' + classes.sPageButtonDisabled);
                                     break;
 
                                 case 'next':
                                     btnDisplay = lang.sNext;
                                     btnClass = button + (page < pages - 1 ?
-                                        '' : ' ' + classes.sPageButtonDisabled);
+                                            '' : ' ' + classes.sPageButtonDisabled);
                                     break;
 
                                 case 'last':
                                     btnDisplay = lang.sLast;
                                     btnClass = button + (page < pages - 1 ?
-                                        '' : ' ' + classes.sPageButtonDisabled);
+                                            '' : ' ' + classes.sPageButtonDisabled);
                                     break;
 
                                 default:
@@ -14501,11 +14501,11 @@
     });
 
     /*
-	 * Public helper functions. These aren't used internally by DataTables, or
-	 * called by any of the options passed into DataTables, but they can be used
-	 * externally by developers working with DataTables. They are helper functions
-	 * to make working with DataTables a little bit easier.
-	 */
+     * Public helper functions. These aren't used internally by DataTables, or
+     * called by any of the options passed into DataTables, but they can be used
+     * externally by developers working with DataTables. They are helper functions
+     * to make working with DataTables a little bit easier.
+     */
 
     var __htmlEscapeEntities = function (d) {
         return typeof d === 'string' ?
@@ -14583,9 +14583,9 @@
 
 
     /*
-	 * This is really a good bit rubbish this method of exposing the internal methods
-	 * publicly... - To be fixed in 2.0 using methods on the prototype
-	 */
+     * This is really a good bit rubbish this method of exposing the internal methods
+     * publicly... - To be fixed in 2.0 using methods on the prototype
+     */
 
 
     /**

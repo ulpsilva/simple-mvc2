@@ -10,9 +10,11 @@
         <!-- /.row -->
         <div class="row">
             <?php foreach ($this->products as $product) { ?>
-                <div class="col-lg-12">
+                <div class="col-lg-3">
                     <h2><?php echo $product->title; ?></h2>
-                    <p><?php echo $product->description; ?></p>
+                    <img src="<?php echo URL . $product->image; ?>" class="img-responsive">
+                    <p><?php echo mb_strimwidth($product->description, 0, 100, "..."); ?></p>
+                    <a class="btn btn-default" href="<?php echo URL . "product/info/" . $product->id ?>">More info</a>
                 </div>
             <?php } ?>
             <!-- /.col-lg-12 -->

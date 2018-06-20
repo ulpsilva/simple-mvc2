@@ -53,8 +53,7 @@
 
     /* Set the defaults for DataTables initialisation */
     $.extend(true, DataTable.defaults, {
-        dom:
-        "<'row'<'small-6 columns'l><'small-6 columns'f>r>" +
+        dom: "<'row'<'small-6 columns'l><'small-6 columns'f>r>" +
         "t" +
         "<'row'<'small-6 columns'i><'small-6 columns'p>>",
         renderer: 'foundation'
@@ -101,28 +100,28 @@
                         case 'first':
                             btnDisplay = lang.sFirst;
                             btnClass = button + (page > 0 ?
-                                '' : ' unavailable disabled');
+                                    '' : ' unavailable disabled');
                             tag = page > 0 ? 'a' : null;
                             break;
 
                         case 'previous':
                             btnDisplay = lang.sPrevious;
                             btnClass = button + (page > 0 ?
-                                '' : ' unavailable disabled');
+                                    '' : ' unavailable disabled');
                             tag = page > 0 ? 'a' : null;
                             break;
 
                         case 'next':
                             btnDisplay = lang.sNext;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' unavailable disabled');
+                                    '' : ' unavailable disabled');
                             tag = page < pages - 1 ? 'a' : null;
                             break;
 
                         case 'last':
                             btnDisplay = lang.sLast;
                             btnClass = button + (page < pages - 1 ?
-                                '' : ' unavailable disabled');
+                                    '' : ' unavailable disabled');
                             tag = page < pages - 1 ? 'a' : null;
                             break;
 

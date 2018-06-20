@@ -1,12 +1,12 @@
 /* Pretty handling of time axes.
 
-Copyright (c) 2007-2014 IOLA and Ole Laursen.
-Licensed under the MIT license.
+ Copyright (c) 2007-2014 IOLA and Ole Laursen.
+ Licensed under the MIT license.
 
-Set axis.mode to "time" to enable. See the section "Time series data" in
-API.txt for details.
+ Set axis.mode to "time" to enable. See the section "Time series data" in
+ API.txt for details.
 
-*/
+ */
 
 (function ($) {
 
@@ -242,9 +242,9 @@ API.txt for details.
                         // mentioned in either of these options
 
                         var spec = (opts.tickSize && opts.tickSize[1] ===
-                            "quarter") ||
+                        "quarter") ||
                         (opts.minTickSize && opts.minTickSize[1] ===
-                            "quarter") ? specQuarters : specMonths;
+                        "quarter") ? specQuarters : specMonths;
 
                         if (opts.minTickSize != null) {
                             if (typeof opts.tickSize == "number") {
@@ -315,7 +315,7 @@ API.txt for details.
                             d.setMonth(floorInBase(d.getMonth(), tickSize));
                         } else if (unit == "quarter") {
                             d.setMonth(3 * floorInBase(d.getMonth() / 3,
-                                tickSize));
+                                    tickSize));
                         } else if (unit == "year") {
                             d.setFullYear(floorInBase(d.getFullYear(), tickSize));
                         }
@@ -402,7 +402,7 @@ API.txt for details.
                         var useQuarters = (axis.options.tickSize &&
                             axis.options.tickSize[1] == "quarter") ||
                             (axis.options.minTickSize &&
-                                axis.options.minTickSize[1] == "quarter");
+                            axis.options.minTickSize[1] == "quarter");
 
                         var t = axis.tickSize[0] * timeUnitSize[axis.tickSize[1]];
                         var span = axis.max - axis.min;

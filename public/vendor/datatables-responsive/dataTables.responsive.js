@@ -609,8 +609,8 @@
                 // Are there any columns that actually need auto-sizing, or do they all
                 // have classes defined
                 if ($.inArray(true, $.map(columns, function (c) {
-                    return c.auto;
-                })) === -1) {
+                        return c.auto;
+                    })) === -1) {
                     return;
                 }
 
