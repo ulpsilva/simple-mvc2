@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2018 at 08:03 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jun 21, 2018 at 05:49 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -35,14 +33,6 @@ CREATE TABLE `articles` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `articles`
---
-
-INSERT INTO `articles` (`id`, `title`, `content`, `category_id`) VALUES
-(3, 'dasdas', 'adasdasdasasdas', 7),
-(4, 'dfdf', '<p>sdfsdfsd</p>', 7);
-
 -- --------------------------------------------------------
 
 --
@@ -59,7 +49,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(7, 'dasdasd');
+(8, 'computer'),
+(9, 'mouse');
 
 -- --------------------------------------------------------
 
@@ -82,8 +73,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `quantity`, `price`, `image`, `category_id`) VALUES
-(2, 'dfdf', '', 11, '212.00', 'zxczxc', 7),
-(3, 'dfdfsss', '<p>asdasdasd</p>', 1, '1111.00', 'zxczxc', 7);
+(11, 'apple', '<p text-align=\"justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis arcu quis dictum porta. Vestibulum a mi tortor. Maecenas sagittis laoreet diam a ullamcorper. Nunc id sollicitudin tellus. Suspendisse quis gravida enim, at tincidunt augue. Cras ultrices mauris at neque pretium accumsan. Aliquam semper lorem sit amet purus imperdiet, vehicula molestie ligula elementum. Donec finibus ornare magna eu ultricies. Nulla tempus, eros ac egestas mollis, ligula libero suscipit tellus, interdum vestibulum tortor dui nec urna. Praesent eros odio, posuere in erat eu, cursus fringilla quam. Etiam at est commodo, gravida orci ut, convallis neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque fermentum lorem eget dictum viverra.</p>', 12, '1000.00', 'public/uploads/products/1529471435.jpg', 8),
+(12, 'lenovo', '<p text-align=\"justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis arcu quis dictum porta. Vestibulum a mi tortor. Maecenas sagittis laoreet diam a ullamcorper. Nunc id sollicitudin tellus. Suspendisse quis gravida enim, at tincidunt augue. Cras ultrices mauris at neque pretium accumsan. Aliquam semper lorem sit amet purus imperdiet, vehicula molestie ligula elementum. Donec finibus ornare magna eu ultricies. Nulla tempus, eros ac egestas mollis, ligula libero suscipit tellus, interdum vestibulum tortor dui nec urna. Praesent eros odio, posuere in erat eu, cursus fringilla quam. Etiam at est commodo, gravida orci ut, convallis neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque fermentum lorem eget dictum viverra.</p>', 5, '800.00', 'public/uploads/products/1529471494.jpg', 8),
+(13, 'mouse', '<p text-align=\"justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis arcu quis dictum porta. Vestibulum a mi tortor. Maecenas sagittis laoreet diam a ullamcorper. Nunc id sollicitudin tellus. Suspendisse quis gravida enim, at tincidunt augue. Cras ultrices mauris at neque pretium accumsan. Aliquam semper lorem sit amet purus imperdiet, vehicula molestie ligula elementum. Donec finibus ornare magna eu ultricies. Nulla tempus, eros ac egestas mollis, ligula libero suscipit tellus, interdum vestibulum tortor dui nec urna. Praesent eros odio, posuere in erat eu, cursus fringilla quam. Etiam at est commodo, gravida orci ut, convallis neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque fermentum lorem eget dictum viverra.</p>', 24, '30.00', 'public/uploads/products/1529471557.png', 8);
 
 -- --------------------------------------------------------
 
@@ -96,23 +88,17 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL
+  `last_name` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`) VALUES
-(1, 'lakmals@ellipsis.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(3, 'lakmals@ellipsis.lka', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(6, 'lakmals@ellipsis.lkds', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(11, 'lakmals@ellipsis.lkasa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(13, 'lakmals@ellipsis.lkdsd', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(14, 'lakmals@ellipsis.lkzcxz', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(17, 'lakmals@ellipsis.lksasa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(22, 'lakmals@ellipsis.lksdasdasd', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva'),
-(23, 'lakmals@ellipsis.lkcxzczx', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'lakmal', 'silva');
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `role`) VALUES
+(1, 'admin', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'test', 'admin', 'admin'),
+(24, 'user', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'test', 'user', 'user');
 
 --
 -- Indexes for dumped tables
@@ -155,25 +141,21 @@ ALTER TABLE `users`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Constraints for dumped tables
 --
@@ -189,7 +171,6 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
